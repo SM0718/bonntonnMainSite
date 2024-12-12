@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'trajan'; /* Name of the font */
+    src: url('./trajan.ttf') format('truetype'); /* Path to the font */
+  }
+
+  .trajan {
+    font-family: 'trajan', sans-serif; /* fallback to sans-serif if Trajan is not found */
+  }
+
+  @layer base {
+  :root {
+        --radius: 0.5rem
+    }
+}
+
+.hiddenClass_3 {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: showContent 0.5s 0.25s linear 1 forwards; /* Reduced delay to 0.25s */
+}
+
+.hiddenClass_4 {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: showContent 0.5s 0.5s linear 1 forwards; /* Reduced delay to 0.5s */
+}
+
+
+    @keyframes showContent{
+      to{
+          transform: translateY(0px);
+          opacity: 1;
+      }
+  }
+
+  /* .zoom
+  {   
+      
+      transform: scale(1);
+      transition: transform 0.3s ease-in-out;
+      animation: zoomContent .5s 1s linear 1 forwards;
+  } */
+
