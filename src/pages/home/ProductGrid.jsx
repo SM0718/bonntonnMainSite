@@ -30,7 +30,7 @@ function ProductGrid() {
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-st justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
           <div className='mx-auto flex flex-col gap-4'>
-            <p className='trajan text-white text-[30px]'>Lorem ipsum</p>
+            <p className='trajan text-white text-[30px]'>Gift Hampers</p>
             <p className='times text-white'>Lorem ipsum dolor sit amet consectetur.</p>
             <button className="bg-[#CE0067] w-[279px] mr-auto text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
               Order Now
@@ -56,7 +56,7 @@ function ProductGrid() {
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
         <div className='mx-auto flex flex-col gap-4'>
-            <p className='trajan text-white text-[30px]'>Lorem ipsum</p>
+            <p className='trajan text-white text-[30px]'>Coookies</p>
             <p className='times text-white'>Lorem ipsum dolor sit amet consectetur.</p>
             <button className="bg-[#CE0067] w-[279px] mr-auto text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
               Order Now
