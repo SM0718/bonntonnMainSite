@@ -65,8 +65,8 @@ const settings = {
           <Slider
             {...settings}>
                 {
-                    clients.map(item => <div className="w-[151px] h-[90px] my-auto">
-                        <img className="w-[151px] h-[90px] hover:grayscale" src={item.logo} alt={item.alt}/>
+                    clients.map(item => <div className="w-[131px] h-[91px] my-auto">
+                        <img className="w-[131px] h-[91px] hover:grayscale" src={item.logo} alt={item.alt}/>
                     </div>)
                 }
         </Slider>

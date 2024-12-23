@@ -74,10 +74,10 @@ const AboutSection = () => {
 
         {/* Video Section */}
         <div className="text-center mt-12">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Faces Behind Bonntonn</h2>
-          <div className="aspect-w-16 aspect-h-9 mx-auto max-w-3xl">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 times">Faces Behind Bonntonn</h2>
+          <div className="aspect-w-16 aspect-h-9 mx-auto max-w-full h-[400px]">
             <iframe
-              className="w-full h-full rounded-md shadow-md"
+              className="w-full h-full rounded-xl shadow-md"
               src="https://www.youtube.com/embed/example-video-id"
               title="Bonntonn Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

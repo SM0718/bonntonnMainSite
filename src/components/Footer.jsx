@@ -10,7 +10,7 @@ function Footer() {
 
   return (
 
-    <div className='bg-[#5C0977] p-8' >
+    <div className='bg-[#5C0977] p-8'>
 
       {/* Div for main info */}
       <div className='flex flex-col md:flex-row justify-center items-center gap-8'>
@@ -19,7 +19,7 @@ function Footer() {
         <div className='w-full md:w-1/2 flex flex-col items-center md:items-start gap-8 py-2'>
 
           <div className='w-48'>
-            <img src='./whiteLogo.png'/>
+            <img src='/./whiteLogo.png'/>
           </div>
 
           <div className='flex flex-col md:flex-row gap-2'>
@@ -28,13 +28,13 @@ function Footer() {
               
             <NavLink to={'https://www.swiggy.com/city/kolkata/bonn-tonn-gourmet-opposite-papillon-flower-shop-alipore-rest705986'}>
                 <div className='bg-white rounded-xl flex justify-center w-full p-2'>
-                  <img className='w-full md:w-[80px] h-[30px] md:h-[25px]' src='./swiggy-logo.png'/>
+                  <img className='w-full md:w-[80px] h-[30px] md:h-[25px]' src='/./swiggy-logo.png'/>
                 </div>
               </NavLink>
 
             <NavLink to={'https://www.zomato.com/kolkata/bonntonn-gourmet-gift-studio-alipore'}>
               <div className='bg-white rounded-xl flex justify-center w-full p-2'>
-                <img className='w-full md:w-[80px] h-[30px] md:h-[25px]' src='./zomato-logo.png'/>
+                <img className='w-full md:w-[80px] h-[30px] md:h-[25px]' src='/./zomato-logo.png'/>
               </div>
               </NavLink>
 
@@ -42,7 +42,7 @@ function Footer() {
 
               <NavLink to={'https://bonntonn.petpooja.com'}>
                 <div className='bg-white rounded-xl flex flex-col justify-center w-[240px] md:w-[160px] p-[6px]'>
-                  <img className='w-full' src='./orderkolk.webp'/>
+                  <img className='w-full' src='/./orderkolk.webp'/>
                 </div>
               </NavLink>
           </div>
@@ -76,17 +76,17 @@ function Footer() {
                       <div className='w-full flex justify-center gap-[40px]'>
                         <NavLink to={'https://www.facebook.com/BonnTonnGourmet/'} className={'transition duration-300'}>
                           {/* <Facebook /> */}
-                          <img className='size-[45px]' src='./facebook.jpg'/>
+                          <img className='size-[45px]' src='/./facebook.jpg'/>
                         </NavLink>
 
                         <NavLink to={'https://www.instagram.com/bonn.tonn/'} className={'transition duration-300'}>
                           {/* <Instagram /> */}
-                          <img className='size-[45px]' src='./instagram.jpg'/>
+                          <img className='size-[45px]' src='/./instagram.jpg'/>
                         </NavLink>
 
                         <NavLink to={'https://www.linkedin.com/company/bonntonn/?originalSubdomain=in'} className={'transition duration-300'}>
                           {/* <Linkdin /> */}
-                          <img className='size-[45px]' src='./linkdin.jpg'/>
+                          <img className='size-[45px]' src='/./linkdin.jpg'/>
                         </NavLink>
                       </div>
             </div>

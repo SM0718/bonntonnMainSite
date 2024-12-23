@@ -75,10 +75,10 @@ const Testimonials = () => {
             <p className="text-gray-700 w-full text-start text-[20px] mb-4 times">{testimonial.description}</p>
 
             {/* Button */}
-            <button 
+            {/* <button 
               className="bg-[#CE0067] w-[279px] mr-auto text-white px-4 py-2 rounded-md transition duration-500 hover:bg-white hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
               Shop More
-            </button>
+            </button> */}
 
           </div>
         ))}

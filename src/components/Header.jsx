@@ -7,11 +7,12 @@ import Cart from '../svg/Cart.jsx'
 import SecurePayments from '../svg/SecurePayments.jsx'
 import Delivery from '../svg/Delivery.jsx'
 import Logo from './Logo.jsx'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, useNavigate } from 'react-router-dom'
+import { Image } from '@nextui-org/react'
 
 function Header() {
   const [show, setShow] = useState("")
-
+  const navigate = useNavigate()
   const toggleShow = (index) => {
     setShow(index)
   }
@@ -33,7 +34,7 @@ function Header() {
                 </div>
               </NavLink>
             )}
-            <span className="font-semibold text-center">{menuItem.name}</span>
+            <span className="font-semibold text-center times">{menuItem.name}</span>
           </li>
         ))}
       </ul>
@@ -47,7 +48,7 @@ function Header() {
           return menuItem.name && (
             <li key={index} className="flex flex-col items-start justify-start">
               <div className="w-full h-full flex flex-col flex-wrap gap-6">
-                <p className="font-bold">{menuItem.name}</p>
+                <NavLink to={`/catagory/${menuItem.name}`} className="font-bold trajan">{menuItem.name}</NavLink>
                 {menuItem.pic && (
                   <span className="w-42 h-28 pl-2 cursor-pointer">
                     <NavLink to={menuItem.slug}>
@@ -59,9 +60,9 @@ function Header() {
               
               <ul className="w-full flex flex-col gap-8 px-2 my-6">
                 {menuItem.subItems?.map((subItem, subIndex) => (
-                  <li className="text-black cursor-pointer transition-all duration-500 hover:translate-x-4" key={subIndex}>
+                  <p onClick={() => navigate(`/all-product/${subItem.slug}`)} className="times text-black cursor-pointer transition-all duration-500 hover:translate-x-4" key={subIndex}>
                     {subItem.name}
-                  </li>
+                  </p>
                 ))}
               </ul>
             </li>
@@ -81,22 +82,22 @@ function Header() {
       </div>
 
       <div className="w-full h-full flex justify-center items-center gap-8">
-        {megaMenu.map((items, firstIndex) => (
+        {megaMenu.map((item, firstIndex) => (
           <span 
             onMouseEnter={() => toggleShow(firstIndex)} 
             onMouseLeave={() => setShow(null)} 
-            key={items.name} 
+            key={item.name} 
             className="h-full z-50 cursor-pointer flex items-center"
           >
-            <span className="relative before:content-[''] before:absolute before:w-0 before:h-1 before:bg-[#CE0067] before:-bottom-4 before:left-1/2 before:-translate-x-1/2 before:transition-all before:duration-400 before:rounded-b-3xl hover:before:w-full trajan text-sm text-[#757575] font-semibold">
-              {items.name}
-            </span>
+            <NavLink to={item.slug} className="relative before:content-[''] before:absolute before:w-0 before:h-1 before:bg-[#CE0067] before:-bottom-4 before:left-1/2 before:-translate-x-1/2 before:transition-all before:duration-400 before:rounded-b-3xl hover:before:w-full trajan text-sm text-[#757575] font-semibold">
+              {item.name}
+            </NavLink>
             
-            {show === firstIndex && items.subItems?.length && (
+            {show === firstIndex && item.subItems?.length && (
               <div className="absolute top-full left-0 w-full">
-                {items.name === "Bulk Gifting" 
-                  ? renderBulkGiftingMenu(items)
-                  : renderDefaultMenu(items)
+                {item.name === "Bulk Gifting" 
+                  ? renderBulkGiftingMenu(item)
+                  : renderDefaultMenu(item)
                 }
               </div>
             )}

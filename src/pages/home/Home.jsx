@@ -13,7 +13,7 @@ import Footer from '@/components/Footer.jsx'
 
 function Home() {
   return (
-    <div className='h-screen'>
+    <div>
 
       <MainCarausel />
 
@@ -37,7 +37,6 @@ function Home() {
       <Testimonials />
       <Clientele />
       <OfflineOutlet />
-      <Footer />
     </div>
   )
 }

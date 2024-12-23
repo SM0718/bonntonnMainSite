@@ -8,11 +8,11 @@ export const megaMenu = [
           pic: '',
           picSlug: '#',
           subItems: [
-            { name: "Shop All Mithai", slug: "#" },
-            { name: "Assorted Mithai Box", slug: "#" },
-            { name: "Mighty Motichir Laddoo", slug: "#" },
-            { name: "Modak Medly", slug: "#" },
-            { name: "Assorted Cheat Sweets", slug: "#" },
+            { name: "Signature Cakes", slug: "676581209cffc0c07bf10540" },
+            { name: "Mini Cakes", slug: "676581fe9cffc0c07bf10544" },
+            { name: "Tea Cakes", slug: "#" },
+            { name: "Cupcakes and Tarts", slug: "#" },
+            { name: "Doughnuts", slug: "#" },
           ],
         },
         {
@@ -74,11 +74,11 @@ export const megaMenu = [
           pic: './placeholder.jpg',
           picSlug: '#',
           subItems: [
-            { name: "Shop All Mithai", slug: "#" },
-            { name: "Assorted Mithai Box", slug: "#" },
-            { name: "Mighty Motichir Laddoo", slug: "#" },
-            { name: "Modak Medly", slug: "#" },
-            { name: "Assorted Cheat Sweets", slug: "#" },
+            { name: "Signature Cakes", slug: "676581209cffc0c07bf10540" },
+            { name: "Mini Cakes", slug: "676581fe9cffc0c07bf10544" },
+            { name: "Tea Cakes", slug: "#" },
+            { name: "Cupcakes and Tarts", slug: "#" },
+            { name: "Doughnuts", slug: "#" },
           ],
         },
         {
@@ -86,35 +86,24 @@ export const megaMenu = [
           pic: './placeholder.jpg',
           picSlug: '#',
           subItems: [
-            { name: "Shop All Chocolate", slug: "#" },
-            { name: "India Bites", slug: "#" },
-            { name: "Choco Butterscotch Barks", slug: "#" },
-            { name: "Choco Fudge", slug: "#" },
-            { name: "Indie Bar", slug: "#" },
+            { name: "Bonbons", slug: "#" },
+            { name: "Bars Mould", slug: "#" },
+            { name: "Truffels", slug: "#" },
+            { name: "Hot Chocolates", slug: "#" },
+            { name: "Nougats", slug: "#" },
           ],
         },
-        {
-          name: 'Theme Cakes',
-          pic: './placeholder.jpg',
-          picSlug: '#',
-          subItems: [
-            { name: "Shop All Mithai", slug: "#" },
-            { name: "Assorted Mithai Box", slug: "#" },
-            { name: "Mighty Motichir Laddoo", slug: "#" },
-            { name: "Modak Medly", slug: "#" },
-            { name: "Assorted Cheat Sweets", slug: "#" },
-          ],
-        },
+        
         {
           name: 'Boulangerie',
           pic: './placeholder.jpg',
           picSlug: '#',
           subItems: [
-            { name: "Shop All Chocolate", slug: "#" },
-            { name: "India Bites", slug: "#" },
-            { name: "Choco Butterscotch Barks", slug: "#" },
-            { name: "Choco Fudge", slug: "#" },
-            { name: "Indie Bar", slug: "#" },
+            { name: "Sandwich Wraps", slug: "#" },
+            { name: "Dips & Spreads", slug: "#" },
+            { name: "Sourdough", slug: "#" },
+            { name: "Baked Carckers", slug: "#" },
+            { name: "Bread Loafs", slug: "#" },
           ],
         },
         {
@@ -122,12 +111,24 @@ export const megaMenu = [
           pic: './placeholder.jpg',
           picSlug: '#',
           subItems: [
-            { name: "Shop All Chocolate", slug: "#" },
-            { name: "India Bites", slug: "#" },
-            { name: "Choco Butterscotch Barks", slug: "#" },
-            { name: "Choco Fudge", slug: "#" },
-            { name: "Indie Bar", slug: "#" },
+            { name: "Brownies", slug: "#" },
+            { name: "Cookies", slug: "#" },
+            { name: "Macarons", slug: "#" },
+            { name: "Mochi", slug: "#" },
+            { name: "Baklava", slug: "#" },
           ],
+        },
+        {
+          name: 'Theme Cakes',
+          pic: './placeholder.jpg',
+          picSlug: '#',
+          // subItems: [
+          //   { name: "Shop All Mithai", slug: "#" },
+          //   { name: "Assorted Mithai Box", slug: "#" },
+          //   { name: "Mighty Motichir Laddoo", slug: "#" },
+          //   { name: "Modak Medly", slug: "#" },
+          //   { name: "Assorted Cheat Sweets", slug: "#" },
+          // ],
         },
       ],
     },
@@ -164,34 +165,34 @@ export const megaMenu = [
       subItems: [
         {
           name: "Birth Announcements",
-          slug: '#',
+          slug: 'https://bonntonn.com/',
           pic: './placeholder.jpg'
         },
         {
           name: "Wedding",
-          slug: '#',
+          slug: 'https://bonntonn.com/',
           pic: './placeholder.jpg'
         },
         {
           name: "Diwali Gifting",
-          slug: '#',
+          slug: 'https://bonntonn.com/',
           pic: './placeholder.jpg'
         },
         {
           name: "Celebrations",
-          slug: '#',
+          slug: 'https://bonntonn.com/',
           pic: './placeholder.jpg'
         },
         {
           name: "Corporate Gifting",
-          slug: '#',
+          slug: 'https://bonntonn.com/',
           pic: './placeholder.jpg'
         },
       ]
     },
     {
       name: "About",
-      slug: '#'
+      slug: '/about'
     },
     {
       name: "Courses",

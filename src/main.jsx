@@ -10,8 +10,13 @@ import {
   Register,
   RecoverAccount,
   Delivery,
-  About
+  About,
+  PrivacyPolicy,
+  Subcatagory,
+  Catagories
 } from './pages/index.js'
+import AllProduct from './pages/allProduct/AllProducts.jsx'
+import ProductPage from './pages/allProduct/ProductPage.jsx'
 // import { Provider } from 'react-redux'
 // import store from './store/store.js'
 
@@ -25,6 +30,11 @@ const router = createBrowserRouter(
       <Route path='/recover-acccount' element={<RecoverAccount />}/>
       <Route path='/checkout' element={<Delivery />}/>
       <Route path='/about' element={<About />}/>
+      <Route path='/privacy' element={<PrivacyPolicy />}/>
+      <Route path='/catagory/:slug' element={<Catagories />}/>
+      <Route path='/subcatagory' element={<Subcatagory />}/>
+      <Route path='/all-product/:slug' element={<AllProduct />}/>
+      <Route path='/product-page/:productId' element={<ProductPage />}/>
     </Route>
   ))
 

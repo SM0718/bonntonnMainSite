@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Image } from '@nextui-org/react';
 
 function FeaturedItem() {
   const thumbnails = [
@@ -33,7 +34,7 @@ function FeaturedItem() {
               <div
                 key={idx}
                 className={`w-[125px] h-[120px] cursor-pointer ${
-                  mainImage === src ? 'border-4 border-pink-600 rounded-lg' : ''
+                  mainImage === src ? 'border-4 border-pink-600 rounded-xl' : ''
                 }`}
                 onClick={() => setMainImage(src)}
               >
@@ -51,13 +52,13 @@ function FeaturedItem() {
         <div className="flex flex-col justify-start gap-4 md:w-[50%]">
           {/* Product Title and Price */}
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold">Lorem ipsum</h2>
-            <p className="text-lg font-semibold text-gray-700">From INR 1200 - INR 1600</p>
+            <h2 className="text-xl font-bold trajan">Lorem ipsum</h2>
+            <p className="text-lg font-semibold text-gray-700 trajan">From INR 1200 - INR 1600</p>
           </div>
 
           {/* Product Description */}
           <div className="py-4 rounded-lg text-gray-700">
-            <p>
+            <p className='times'>
               Lorem ipsum dolor sit amet consectetur. Semper sed volutpat egestas consectetur dui lorem.
               Consectetur aliquet cursus dignissim eget mi elementum feugiat sagittis. Iaculis nam aliquam
               vulputate egestas nisl et vel ornare. Tristique phasellus faucibus sit commodo cursus quam.
@@ -66,7 +67,7 @@ function FeaturedItem() {
           </div>
 
           {/* Proceed to Checkout Button */}
-          <button className="bg-[#CE0067] w-full mr-auto text-white px-4 py-2 rounded-md transition duration-500 hover:bg-white hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
+          <button className="bg-[#CE0067] w-full mr-auto text-white px-4 py-2 rounded-md times transition duration-500 hover:bg-white hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
             SEE MORE
           </button>
         </div>

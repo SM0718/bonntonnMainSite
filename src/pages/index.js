@@ -5,6 +5,9 @@ import Register from "./Register.jsx";
 import RecoverAccount from "./RecoverAccount.jsx";
 import Delivery from "./Delivery.jsx";
 import About from "./About.jsx";
+import PrivacyPolicy from "./PrivacyPolicy.jsx";
+import Subcatagory from "./Subcatagory.jsx";
+import Catagories from "./Catagories.jsx";
 
 export {
     Home,
@@ -13,5 +16,8 @@ export {
     Register,
     RecoverAccount,
     Delivery,
-    About
+    About,
+    PrivacyPolicy,
+    Subcatagory,
+    Catagories
 }
