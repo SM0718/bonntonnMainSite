@@ -4,7 +4,7 @@ const SpecialOfferBanner = () => {
 
     const code = "TODAY5"
   return (
-    <div className="relative group bg-cover bg-center rounded-xl h-[400px] md:h-[400px] lg:h-[400px] flex items-center justify-center" style={{ backgroundImage: "url('./homeImages/banner.webp')" }}>
+    <div className="relative group bg-cover bg-center rounded-xl h-[400px] md:h-[400px] lg:h-[400px] hidden md:flex items-center justify-center" style={{ backgroundImage: "url('./homeImages/banner.webp')" }}>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-25 rounded-xl"></div>
       <div className="absolute inset-0 border border-white transition duration-500 ease-in-out group-hover:scale-90 rounded-xl"></div>

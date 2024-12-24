@@ -4,7 +4,7 @@ const Testimonials = () => {
       id: 1,
       name: "Sarah",
       role: "UX Designer",
-      image: "https://via.placeholder.com/100", // Replace with actual image URL
+      image: "/api/placeholder/100/100",
       rating: 5,
       title: "Elegant Gifts",
       description:
@@ -14,7 +14,7 @@ const Testimonials = () => {
       id: 2,
       name: "Sarah",
       role: "UX Designer",
-      image: "https://via.placeholder.com/100", // Replace with actual image URL
+      image: "/api/placeholder/100/100",
       rating: 5,
       title: "Elegant Gifts",
       description:
@@ -24,7 +24,7 @@ const Testimonials = () => {
       id: 3,
       name: "Sarah",
       role: "UX Designer",
-      image: "https://via.placeholder.com/100", // Replace with actual image URL
+      image: "/api/placeholder/100/100",
       rating: 5,
       title: "Elegant Gifts",
       description:
@@ -33,53 +33,52 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="bg-white py-16 px-5">
-      <h2 className="trajan text-[40px] text-center text-black py-4">Testimonials</h2>
-      <div className="h-[550px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="bg-white md:py-16 px-4 md:px-5">
+      <h2 className="trajan text-[28px] md:text-[40px] text-center pb-4">
+        Testimonials
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="border border-purple-500 rounded-lg p-6 shadow-lg flex flex-col items-center justify-evenly text-center"
+            className="border border-purple-500 rounded-lg p-4 md:p-6 shadow-lg flex flex-col items-center justify-evenly text-center h-auto md:h-[550px]"
           >
-            {/* Profile Image */}
-            <div className="w-full flex justify-start gap-8">
+            {/* Profile Image and Info */}
+            <div className="w-full flex flex-col sm:flex-row items-center sm:items-start sm:justify-start gap-4 sm:gap-8 mb-4 md:mb-0">
               <img
                 src={testimonial.image}
                 alt={testimonial.name}
-                className="w-[133px ] h-[133px ] rounded-full mb-4"
+                className="w-20 h-20 sm:w-[133px] sm:h-[133px] rounded-full"
               />
               {/* Name and Role */}
-              <div className="flex flex-col items-start justify-center">
-                <h3 className="text-[40px] font-semibold trajan">{testimonial.name}</h3>
-                <p className="text-gray-500 text-[25px] times">{testimonial.role}</p>
+              <div className="flex flex-col items-center sm:items-start justify-center">
+                <h3 className="text-2xl sm:text-3xl lg:text-[40px] font-semibold trajan">
+                  {testimonial.name}
+                </h3>
+                <p className="text-gray-500 text-lg sm:text-xl lg:text-[25px] times">
+                  {testimonial.role}
+                </p>
               </div>
-              
             </div>
-            
 
             {/* Rating */}
-            <div className="w-full flex items-center justify-start gap-2 mb-4">
+            <div className="w-full flex items-center justify-center sm:justify-start gap-2 mb-4">
               {Array.from({ length: testimonial.rating }).map((_, index) => (
-                <span key={index} className="text-[#8904B5] text-[32px]">
+                <span key={index} className="text-[#8904B5] text-xl sm:text-2xl lg:text-[32px]">
                   ★
                 </span>
               ))}
             </div>
 
             {/* Title */}
-            <h4 className="text-purple-600 w-full text-start font-semibold mb-2 trajan text-[32px]">
+            <h4 className="text-purple-600 w-full text-center sm:text-start font-semibold mb-2 trajan text-xl sm:text-2xl lg:text-[32px]">
               {testimonial.title}
             </h4>
 
             {/* Description */}
-            <p className="text-gray-700 w-full text-start text-[20px] mb-4 times">{testimonial.description}</p>
-
-            {/* Button */}
-            {/* <button 
-              className="bg-[#CE0067] w-[279px] mr-auto text-white px-4 py-2 rounded-md transition duration-500 hover:bg-white hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
-              Shop More
-            </button> */}
-
+            <p className="text-gray-700 w-full text-center sm:text-start text-base sm:text-lg lg:text-[20px] mb-4 times">
+              {testimonial.description}
+            </p>
           </div>
         ))}
       </div>

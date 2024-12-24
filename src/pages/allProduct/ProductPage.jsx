@@ -80,30 +80,30 @@ const ProductPage = () => {
       {/* Product Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Product Images */}
-        <div className="space-y-4">
+        <div className="w-full flex flex-col gap-2 lg:gap-6 lg:px-4 space-y-4">
           {/* Big Image Container */}
-          <div className="group w-full aspect-[4/3] bg-gray-100 overflow-hidden">
+          <div className="group w-full aspect-[4/3] gap-2 overflow-hidden">
             <img
               src={selectedImage || "/api/placeholder/400/300"}
               alt={selectedVariant?.variantName || "Product"}
-              className="w-full h-full object-fit rounded-md group-hover:scale-110 transition duration-500"
+              className="w-full h-full object-fit rounded-lg group-hover:scale-110 transition duration-500"
             />
           </div>
 
           {/* Small Images Grid */}
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-2">
             {[selectedVariant?.variantPic_1, selectedVariant?.variantPic_2, selectedVariant?.variantPic_3, selectedVariant?.variantPic_4].map(
               (src, index) =>
                 src && (
                   <div
                     key={index}
-                      className={`${selectedImage === src && "border-3 border-[#CE0067] rounded-lg  "} aspect-square w-full cursor-pointer`}
+                      className={`${selectedImage === src && "border-3 border-[#CE0067] rounded-xl  "} aspect-square w-full cursor-pointer`}
                     onClick={() => handleImageClick(src)} // Update large image on click
                   >
                     <img
                       src={src}
                       alt={`Thumbnail ${index + 1}`}
-                      className="w-full h-full object-cover rounded-md hover:opacity-80 transition-opacity"
+                      className="w-full h-full object-cover rounded-lg hover:opacity-80 transition-opacity"
                     />
                   </div>
                 )
@@ -115,7 +115,7 @@ const ProductPage = () => {
         <div className="space-y-8">
           {/* Title and Description */}
           <div>
-            <h1 className="text-4xl font-bold trajan">{selectedVariant?.variantName || "Product"}</h1>
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold trajan">{selectedVariant?.variantName || "Product"}</h1>
             <p className="text-lg text-[#CE0067] font-semibold mt-2 times">
               Price - {selectedVariant?.variantPrice || 0} INR
             </p>
@@ -126,8 +126,8 @@ const ProductPage = () => {
 
           {/* Variant Selector */}
           <div>
-            <label className="block text-sm font-medium mb-2 times">Choose Variant</label>
-            <div className="flex gap-4">
+            <label className="block text-sm font-bold mb-2 times">Choose Variant</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {product.variant?.map((variant, index) => (
                 <Button
                   key={index}
@@ -142,11 +142,12 @@ const ProductPage = () => {
             </div>
           </div>
 
+
           {/* Options and Delivery */}
           <div className="space-y-6">
             {/* Box Type */}
            
-            <div className="dropdown dropdown-hover">
+            <div className="w-full dropdown dropdown-hover space-x-6">
               <div
                 tabIndex={0}
                 role="button"
@@ -160,7 +161,7 @@ const ProductPage = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu bg-white text-black rounded-box z-[1] w-52 p-2 shadow"
+                className="w-full dropdown-content menu bg-white text-black rounded-box z-[1] p-2 shadow"
               >
                 {boxSize.map((box) => (
                   <li key={box.boxId}>
@@ -179,7 +180,7 @@ const ProductPage = () => {
 
             {/* Quantity */}
             <div className="flex items-center gap-4">
-      <span className="text-sm font-medium text-gray-700 times">Quantity</span>
+      <span className="text-sm font-bold text-gray-700 times">Quantity</span>
       <div className="flex items-center gap-2">
         <Button
           size="sm"
@@ -231,19 +232,16 @@ const ProductPage = () => {
             </div> */}
 
             {/* Delivery Option */}
-            <div className="flex space-x-4 items-center">
-                <span className={`flex gap-2 text-sm font-medium times`}>
-                  <Tick />
-                  Local Delivery
-                </span>
-                <span className={`flex gap-2 text-sm font-medium times`}>
-                  {
-                    allIndiaDelivery ? <Tick /> : <Cross />
-                  }
-                  Pan India Delivery
-                </span>
-              </div>
-
+            <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 lg:items-center">
+              <span className="flex items-center gap-2 text-sm font-medium times">
+                <Tick />
+                Local Delivery
+              </span>
+              <span className="flex items-center gap-2 text-sm font-medium times">
+                {allIndiaDelivery ? <Tick /> : <Cross />}
+                Pan India Delivery
+              </span>
+            </div>
 
             {/* Add to Cart Button */}
             <Button className="bg-[#CE0067] w-full text-white px-4 py-2 times rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
@@ -254,7 +252,7 @@ const ProductPage = () => {
       </div>
 
 
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
 
               <div>
                 <Options />

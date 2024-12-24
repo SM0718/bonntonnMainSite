@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Image } from '@nextui-org/react';
 
 function FeaturedItem() {
   const thumbnails = [
@@ -12,15 +11,17 @@ function FeaturedItem() {
 
   return (
     <div className="bg-white text-black py-8">
+      {/* Header Section */}
       <div className="flex flex-col gap-4 justify-between bg-white text-black py-12">
-        <p className="trajan text-[40px] text-center">Featured Product</p>
+        <p className="trajan text-[28px] md:text-[40px] text-center">Featured Product</p>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-evenly items-start p-4 gap-8 bg-white text-black">
+      {/* Main Content */}
+      <div className="flex flex-col md:flex-row justify-center md:justify-evenly items-start p-4 gap-8 bg-white text-black">
         {/* Left Section: Product Images */}
-        <div className="w-[500px] flex flex-col gap-4 px-4">
+        <div className="w-full md:w-[50%] lg:w-[500px] flex flex-col gap-4 px-4">
           {/* Main Image */}
-          <div className="w-full h-[300px] md:h-[400px]">
+          <div className="w-full h-[250px] md:h-[300px] lg:h-[400px]">
             <img
               src={mainImage}
               alt="Main Product"
@@ -33,7 +34,7 @@ function FeaturedItem() {
             {thumbnails.map((src, idx) => (
               <div
                 key={idx}
-                className={`w-[125px] h-[120px] cursor-pointer ${
+                className={`w-[75px] h-[75px] md:w-[100px] md:h-[100px] lg:w-[125px] lg:h-[120px] cursor-pointer ${
                   mainImage === src ? 'border-4 border-pink-600 rounded-xl' : ''
                 }`}
                 onClick={() => setMainImage(src)}
@@ -49,16 +50,18 @@ function FeaturedItem() {
         </div>
 
         {/* Right Section: Product Details */}
-        <div className="flex flex-col justify-start gap-4 md:w-[50%]">
+        <div className="flex flex-col justify-start gap-4 w-full md:w-[50%] px-4 md:px-0">
           {/* Product Title and Price */}
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold trajan">Lorem ipsum</h2>
-            <p className="text-lg font-semibold text-gray-700 trajan">From INR 1200 - INR 1600</p>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+            <h2 className="text-lg md:text-xl font-bold trajan">Lorem ipsum</h2>
+            <p className="text-md md:text-lg font-semibold text-gray-700 trajan mt-2 md:mt-0">
+              From INR 1200 - INR 1600
+            </p>
           </div>
 
           {/* Product Description */}
           <div className="py-4 rounded-lg text-gray-700">
-            <p className='times'>
+            <p className="times text-sm md:text-base leading-relaxed">
               Lorem ipsum dolor sit amet consectetur. Semper sed volutpat egestas consectetur dui lorem.
               Consectetur aliquet cursus dignissim eget mi elementum feugiat sagittis. Iaculis nam aliquam
               vulputate egestas nisl et vel ornare. Tristique phasellus faucibus sit commodo cursus quam.
@@ -67,7 +70,7 @@ function FeaturedItem() {
           </div>
 
           {/* Proceed to Checkout Button */}
-          <button className="bg-[#CE0067] w-full mr-auto text-white px-4 py-2 rounded-md times transition duration-500 hover:bg-white hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
+          <button className="bg-[#CE0067] w-full text-white px-4 py-2 rounded-md times transition duration-500 hover:bg-white hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
             SEE MORE
           </button>
         </div>

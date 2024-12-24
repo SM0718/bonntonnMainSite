@@ -1,4 +1,3 @@
-
 import Next from '@/svg/Next';
 import Previous from '@/svg/Previous';
 import React, { useState, useEffect } from 'react';
@@ -18,7 +17,7 @@ function BestSellers() {
     "./homeImages/c4.webp",
     "./homeImages/c1.webp",
     "./homeImages/c2.webp",
-  ]
+  ];
 
   function SampleNextArrow(props) {
     const { onClick } = props;
@@ -47,7 +46,6 @@ function BestSellers() {
       </div>
     );
   }
-  
 
   const settings = {
     className: 'mx-auto',
@@ -57,6 +55,20 @@ function BestSellers() {
     cssEase: 'linear',
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   const handleResize = () => {
@@ -73,33 +85,33 @@ function BestSellers() {
   return (
     <div className="bg-white text-black">
       <div className="flex flex-col gap-4 justify-between bg-white text-black py-12">
-        <p className="trajan text-[40px] text-center">Shop Our Best Sellers</p>
-        <p className="w-[800px] times text-[16px] text-center text-[#757575] mx-auto">
+        <p className="trajan text-[30px] md:text-[40px] text-center">Shop Our Best Sellers</p>
+        <p className="w-full px-1 times text-[16px] text-center text-[#757575] mx-auto">
           Discover our best selling chocolate products crafted with premium ingredients.
         </p>
       </div>
 
       <div className="slider-container relative w-full md:w-4/5 mx-auto">
         <Slider {...settings}>
-          {bestSellers.map(item => (
-              <div className="px-4 cursor-pointer">
-                <div className="w-full h-[300px] flex justify-center">
-                  <img
-                    className="w-full h-full rounded-md"
-                    src={item}
-                    alt="Product"
-                  />
-                </div>
+          {bestSellers.map((item, index) => (
+            <div key={index} className="px-4 cursor-pointer">
+              <div className="w-full h-[300px] md:h-[400px] flex justify-center">
+                <img
+                  className="w-full h-full rounded-md object-cover"
+                  src={item}
+                  alt="Product"
+                />
+              </div>
 
-                <div className="text-center mt-4">
-                  <p className="font-bold times text-lg text-start">CHOCOLATE ELEGANCE</p>
-                  <div className='flex justify-between'>
-                    <p className="text-gray-500">Tray of 25 pcs</p>
-                    <p className="font-semibold">1090</p>
-                  </div>
+              <div className="text-center mt-4">
+                <p className="font-bold times text-lg md:text-xl text-start">CHOCOLATE ELEGANCE</p>
+                <div className='flex justify-between'>
+                  <p className="text-gray-500 text-sm md:text-base">Tray of 25 pcs</p>
+                  <p className="font-semibold text-lg md:text-xl">$1090</p>
                 </div>
               </div>
-            ))}
+            </div>
+          ))}
         </Slider>
       </div>
     </div>

@@ -47,6 +47,13 @@
       }
   }
 
+  @media (max-width: 768px) {
+    .slick-prev, .slick-next {
+      font-size: 0; /* Removes default arrow icons */
+    }
+  }
+  
+
   /* .zoom
   {   
       

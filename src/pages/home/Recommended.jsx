@@ -72,8 +72,8 @@ function Recommended() {
   return (
     <div className="bg-white text-black">
       <div className="flex flex-col gap-4 justify-between bg-white text-black py-12">
-        <p className="trajan text-[40px] text-center">Recommended for you</p>
-        <p className="w-[800px] times text-[16px] text-center text-[#757575] mx-auto">
+        <p className="trajan text-[30px] md:text-[40px] text-center">Recommended for you</p>
+        <p className="w-full md:w-[800px] px-2 times text-[16px] text-center text-[#757575] mx-auto">
             Discover our best selling chocolate products crafted with premium ingredients .
         </p>
       </div>

@@ -18,8 +18,8 @@ function Home() {
       <MainCarausel />
 
       <div className='flex flex-col gap-4 justify-between bg-white text-black py-12'>
-        <p className='trajan text-[40px] text-center'>Wrapped in Love  | Straight from the Heart!</p>
-        <p className='w-[800px] times text-[26px] text-center text-[#757575] mx-auto'>
+        <p className='trajan text-[30px] md:text-[40px] text-center'>Wrapped in Love  | Straight from the Heart!</p>
+        <p className='w-full md:w-[800px] times text-[16px] md:text-[26px] text-center text-[#757575] mx-auto px-2'>
           Thoughtfully crafted for every heartfelt celebration, our gifts are made to bring joy and create memories. Unwrap the essence of love, all carefully packed and ready to be shared.
         </p>
       </div>
@@ -30,7 +30,7 @@ function Home() {
       <Recommended />
       <FeaturedItem />
 
-      <div className='px-24 py-8 bg-white'>
+      <div className='px-2 md:px-24 py-8 bg-white'>
         <SpecialOfferBanner />
       </div>
 
