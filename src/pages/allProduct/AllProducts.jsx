@@ -42,7 +42,9 @@ const AllProduct = () => {
 
   const getAllProducts = async () => {
     try {
-      const response = await fetch(`/api/v1/products/all-products?catagoryId=${slug}`);
+      const response = await fetch(`https://bonntonn.up.railway.app/api/v1/products/all-products?catagoryId=${slug}`, {
+        method: "GET"
+      });
       const data = await response.json();
 
       if (response.ok && data.statusCode === 200) {
