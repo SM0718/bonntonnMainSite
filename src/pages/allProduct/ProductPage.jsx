@@ -17,9 +17,13 @@ const ProductPage = () => {
 
   const getProduct = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/api/v1/products/product/${productId}`);
+      const response = await fetch(`https://bonntonn.up.railway.app/api/v1/products/product?productId=${productId}`, {
+        method: "GET"
+      });
+      
       const data = await response.json();
       if (response.status === 201) {
+        console.log(data)
         setProduct(data?.data);
         const defaultVariant = data?.data?.variant?.[0];
         setSelectedVariant(defaultVariant);

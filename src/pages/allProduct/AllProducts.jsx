@@ -111,7 +111,9 @@ const AllProduct = () => {
 
   const getCategoryData = async () => {
     try {
-      const response = await fetch(`/api/v1/catagory/current-catagory?catagoryId=${slug}`);
+      const response = await fetch(`https://bonntonn.up.railway.app/api/v1/catagory/current-catagory?catagoryId=${slug}`, {
+        method: "GET"
+      });
       const data = await response.json();
 
       if (response.ok && data.statusCode === 201) {
