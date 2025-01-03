@@ -49,7 +49,7 @@ const AllProduct = () => {
 
   const getAllProducts = async () => {
     try {
-      const response = await fetch(`http://bonnbackend.up.railway.app/api/v1/products/all-products?catagoryId=${slug}`, {
+      const response = await fetch(`https://bonnbackend.up.railway.app/api/v1/products/all-products?catagoryId=${slug}`, {
         method: "GET"
       });
       const data = await response.json();
@@ -137,7 +137,7 @@ const AllProduct = () => {
 
   const getCategoryData = async () => {
     try {
-      const response = await fetch(`http://bonnbackend.up.railway.app/api/v1/catagory/current-catagory?catagoryId=${slug}`, {
+      const response = await fetch(`https://bonnbackend.up.railway.app/api/v1/catagory/current-catagory?catagoryId=${slug}`, {
         method: "GET"
       });
       const data = await response.json();
