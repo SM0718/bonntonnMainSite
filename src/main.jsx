@@ -13,7 +13,9 @@ import {
   About,
   PrivacyPolicy,
   Subcatagory,
-  Catagories
+  Catagories,
+  Wishlist,
+  CartPage
 } from './pages/index.js'
 import AllProduct from './pages/allProduct/AllProducts.jsx'
 import ProductPage from './pages/allProduct/ProductPage.jsx'
@@ -24,7 +26,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route path='/' element={<Home />}/>
-      <Route path='/account-page' element={<AccountPage />}/>
+      <Route path='/account' element={<AccountPage />}/>
       <Route path='/login' element={<Login />}/>
       <Route path='/register' element={<Register />}/>
       <Route path='/recover-acccount' element={<RecoverAccount />}/>
@@ -35,6 +37,8 @@ const router = createBrowserRouter(
       <Route path='/subcatagory' element={<Subcatagory />}/>
       <Route path='/all-product/:slug' element={<AllProduct />}/>
       <Route path='/product-page/:productId' element={<ProductPage />}/>
+      <Route path='/wishlist' element={<Wishlist />}/>
+      <Route path='/cart' element={<CartPage />}/>
     </Route>
   ))
 

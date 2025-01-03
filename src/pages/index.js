@@ -8,6 +8,8 @@ import About from "./About.jsx";
 import PrivacyPolicy from "./PrivacyPolicy.jsx";
 import Subcatagory from "./Subcatagory.jsx";
 import Catagories from "./Catagories.jsx";
+import Wishlist from "./Wishlist.jsx";
+import CartPage from "./CartPage.jsx";
 
 export {
     Home,
@@ -19,5 +21,7 @@ export {
     About,
     PrivacyPolicy,
     Subcatagory,
-    Catagories
+    Catagories,
+    Wishlist,
+    CartPage
 }
