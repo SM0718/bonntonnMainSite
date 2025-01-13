@@ -35,7 +35,7 @@ function Header() {
     const fetchCartData = async () => {
       try {
         const token = localStorage.getItem('accessToken');
-        const request = await fetch('http://localhost:4000/api/v1/cart/get-user-cart', {
+        const request = await fetch('https://bonnbackend.up.railway.app/api/v1/cart/get-user-cart', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
