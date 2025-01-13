@@ -76,9 +76,9 @@ export const megaMenu = [
           subItems: [
             { name: "Signature Cakes", slug: "676581209cffc0c07bf10540" },
             { name: "Mini Cakes", slug: "676581fe9cffc0c07bf10544" },
-            { name: "Tea Cakes", slug: "#" },
+            { name: "Tea Cakes", slug: "676582a79cffc0c07bf10548" },
             { name: "Cupcakes and Tarts", slug: "676583229cffc0c07bf1054c" },
-            { name: "Doughnuts", slug: "#" },
+            { name: "Doughnuts", slug: "6784c47f9227029080f26299" },
           ],
         },
         {
