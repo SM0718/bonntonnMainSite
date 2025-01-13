@@ -8,9 +8,12 @@ import Options from "./Options";
 import Tick from "@/svg/Tick";
 import Cross from "@/svg/Cross";
 import useStore from "@/store/store";
+import { useForm } from "react-hook-form";
 import { getCurrentUser } from "@/utils/getCurrentUser";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
@@ -23,11 +26,26 @@ const ProductPage = () => {
   const { productId } = useParams();
   const navigate = useNavigate()
   const token = localStorage.getItem('accessToken');
+  const updateCartStatus = useStore(state => state.updateCartStatus);
+  console.log(productId)
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      variant: "",
+      boxType: "",
+      quantity: 1,
+    },
+  });
 
   // Check if product is in wishlist
   const checkWishlistStatus = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/api/v1/wishlists/check-product-in-wishlist?productId=${productId}`, {
+      const response = await fetch(`https://bonnbackend.up.railway.app/api/v1/wishlists/check-product-in-wishlist?productId=${productId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -54,7 +72,7 @@ const ProductPage = () => {
 
   const getProduct = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/api/v1/products/product?productId=${productId}`, {
+      const response = await fetch(`https://bonnbackend.up.railway.app/api/v1/products/product?productId=${productId}`, {
         method: "GET"
       });
       
@@ -78,6 +96,7 @@ const ProductPage = () => {
   }, [productId]);
 
   const handleVariantChange = (variant) => {
+    setValue("variant", variant)
     setSelectedVariant(variant);
     setSelectedImage(variant?.variantPic_1);
   };
@@ -91,8 +110,8 @@ const ProductPage = () => {
       const user = await getCurrentUser()
       if(user.statusCode === 200) {
         const endpoint = isInWishlist 
-          ? `http://localhost:4000/api/v1/wishlists/delete-from-wishlist?productId=${id}`
-          : `http://localhost:4000/api/v1/wishlists/add-to-wishlist?productId=${id}`;
+          ? `https://bonnbackend.up.railway.app/api/v1/wishlists/delete-from-wishlist?productId=${id}`
+          : `https://bonnbackend.up.railway.app/api/v1/wishlists/add-to-wishlist?productId=${id}`;
         
         const request = await fetch(endpoint, {
           method: isInWishlist ? "DELETE" : "POST",
@@ -109,7 +128,7 @@ const ProductPage = () => {
               console.log("--In Wishlist If--", isInWishlist)
               toast.info("Product Removed From Wishlist", {
                 position: "top-right",
-                autoClose: 2000,
+                autoClose: 1000,
                 theme: "dark",
               });
               setIsInWishlist(false); // Immediately set to false when removing
@@ -117,7 +136,7 @@ const ProductPage = () => {
               console.log("--In Wishlist Else--", isInWishlist)
               toast.success("Product Added To Wishlist", {
                 position: "top-right",
-                autoClose: 2000,
+                autoClose: 1000,
                 theme: "dark",
               });
               setIsInWishlist(data.data._id); // Only check status when adding
@@ -127,7 +146,7 @@ const ProductPage = () => {
       } else {
         toast.info("Login Required", {
           position: "top-right",
-          autoClose: 3000,
+          autoClose: 1000,
           theme: "dark",
         });
         navigate("/login")
@@ -166,10 +185,14 @@ const ProductPage = () => {
   } = product;
 
   const decrement = () => {
-    if (quantity > 1) setQuantity(quantity - 1);
+    if (quantity > 1) {
+      setValue("quantity", Math.max(quantity - 1, 1))
+      setQuantity(quantity - 1);
+    } 
   };
 
   const increment = () => {
+    setValue("quantity", Math.max(quantity + 1, 1))
     setQuantity(quantity + 1);
   };
 
@@ -179,15 +202,72 @@ const ProductPage = () => {
   };
 
   const handleSelect = (box) => {
+    setValue("boxType", box.boxId)
     setSelectedBox(box.boxId);
     console.log("Selected Box:", box.boxType);
+  };
+
+  const addToCart = async (data) => {
+    console.log(data)
+    if (!data.boxType) {
+      toast.info("Please select a box type before adding to cart!", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem('accessToken');
+      console.log(token)
+
+      const request = await fetch("http://localhost:4000/api/v1/cart/add-to-cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          productId: productId,
+          variantId: selectedVariant._id,
+          productPic: selectedVariant.variantPic_1,
+          productName: selectedVariant.variantName,
+          productQuantity: data.quantity,
+          productPrice: selectedVariant.variantPrice,
+          boxType: boxSize.find((box) => box.boxId === data.boxType)?.boxType,
+        }),
+  
+        credentials: "include", // Include cookies in the request
+      });
+  
+        const responseData = await request.json();
+
+        if(responseData.statusCode === 200) {
+          updateCartStatus();
+          toast.success("Product Added To Cart", {
+              position: "top-right",
+              autoClose: 1000,
+              theme: "dark",
+            });
+
+            console.log(responseData)
+        }
+    } catch (error) {
+      console.log(error)
+    }
+
   };
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 space-y-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div className="w-full flex flex-col gap-2 lg:gap-6 lg:px-4 space-y-4">
-        <div className="z-40 relative w-full aspect-[4/3] gap-2 overflow-hidden">
+        <div className="w-full flex flex-col gap-2 lg:gap-4 lg:px-4 space-y-4">
+        {/* <div className="z-40 relative w-full aspect-[4/3] gap-2 overflow-hidden">
           <img
             src={selectedImage || "/api/placeholder/400/300"}
             alt={selectedVariant?.variantName || "Product"}
@@ -208,8 +288,30 @@ const ProductPage = () => {
               }`}
             />
           </button>
-        </div>
+        </div> */}
 
+<div className="z-40 relative w-full aspect-[1/1] gap-2 overflow-hidden">
+  <img
+    src={selectedImage || "/api/placeholder/400/300"}
+    alt={selectedVariant?.variantName || "Product"}
+    className="w-full h-full object-fit rounded-lg transition-transform duration-500 hover:scale-110"
+  />
+  <button
+    key={isInWishlist ? isInWishlist : product._id}
+    className="p-2 absolute top-2 right-2 z-50 bg-white shadow-md rounded-full transition-colors duration-300 hover:bg-pink-50"
+    onClick={() => toggleWishlist(isInWishlist ? isInWishlist : product._id)}
+    aria-label={isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
+  >
+    <Heart
+      size={24}
+      className={`transition-colors duration-300 ${
+        isInWishlist
+          ? "fill-[#CE0067] stroke-[#CE0067]"
+          : "stroke-[#CE0067] fill-transparent"
+      }`}
+    />
+  </button>
+</div>
 
           <div className="grid grid-cols-4 gap-2">
             {[selectedVariant?.variantPic_1, selectedVariant?.variantPic_2, selectedVariant?.variantPic_3, selectedVariant?.variantPic_4].map(
@@ -245,7 +347,7 @@ const ProductPage = () => {
             
           </div>
 
-          <div>
+          {/* <div>
             <label className="block text-sm font-bold mb-2 times">Choose Variant</label>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {product.variant?.map((variant, index) => (
@@ -347,7 +449,120 @@ const ProductPage = () => {
             <Button className="bg-[#CE0067] w-full text-white px-4 py-2 times rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
               Add To Cart
             </Button>
-          </div>
+          </div> */}
+
+        <form onSubmit={handleSubmit(addToCart)} className="flex flex-col gap-4">
+              <div>
+                <label className="block text-sm font-bold mb-2 times">Choose Variant</label>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {product.variant?.map((variant, index) => (
+                    <button
+                      type="button"
+                      key={index}
+                      className={` px-4 rounded-md times text-sm py-2 ${
+                        selectedVariant === variant ? "bg-[#CE0067] text-white" : "bg-gray-200 text-gray-800"
+                      }`}
+                      onClick={() => handleVariantChange(variant)}
+                    >
+                      {variant.variantName}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="w-full dropdown dropdown-hover space-x-6">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn m-1 w-full bg-white text-[#757575] border-gray-300 hover:bg-gray-100"
+                  >
+                    {selectedBox
+                      ? boxSize.find((box) => box.boxId === selectedBox)?.boxType
+                      : "Box Type"}
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="w-full dropdown-content menu bg-white text-black rounded-lg z-[1] p-2 shadow"
+                  >
+                    {boxSize.map((box) => (
+                      <li key={box.boxId} className="rounded-lg">
+                        <a
+                          onClick={() => handleSelect(box)}
+                          className="flex justify-between rounded-md hover:bg-gray-100"
+                        >
+                          {box.boxType} - {box.boxPrice} INR
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <span className="text-sm font-bold text-gray-700 times">Quantity</span>
+                  <div className="flex items-center gap-2">
+                                <Button
+                                  size="sm"
+                                  variant="flat"
+                                  className="min-w-8 h-8 px-2"
+                                  onClick={decrement}
+                                  isIconOnly
+                                >
+                                  -
+                                </Button>
+                                <Input
+                                  type="number"
+                                  value={quantity}
+                                  onChange={handleInputChange}
+                                  className="w-16"
+                                  size="sm"
+                                  classNames={{
+                                    input: [
+                                      "text-center",
+                                      "[appearance:textfield]",
+                                      "[&::-webkit-outer-spin-button]:appearance-none",
+                                      "[&::-webkit-inner-spin-button]:appearance-none"
+                                    ],
+                                    inputWrapper: "h-8"
+                                  }}
+                                  min={1}
+                                />
+                                <Button
+                                  size="sm"
+                                  variant="flat"
+                                  className="min-w-8 h-8 px-2"
+                                  onClick={increment}
+                                  isIconOnly
+                                >
+                                  +
+                                </Button>
+                              </div>
+                </div>
+
+
+                <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 lg:items-center">
+                  <span className="flex items-center gap-2 text-sm font-medium times">
+                    <Tick />
+                    Local Delivery
+                  </span>
+                  <span className="flex items-center gap-2 text-sm font-medium times">
+                    {allIndiaDelivery ? <Tick /> : <Cross />}
+                    Pan India Delivery
+                  </span>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={!selectedBox}
+                  className={`w-full px-4 py-2 rounded-md transition duration-500 times cursor-pointer ${
+                   "bg-[#CE0067] text-white hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]"
+                  }`}
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </form>
+
         </div>
       </div>
 

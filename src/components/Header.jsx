@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { megaMenu } from '../utils/megaMenu';
 import MagnifyingGlass from '../svg/MagnifyingGlass.jsx';
 import Wishlist from '../svg/Wishlist.jsx';
@@ -12,20 +12,48 @@ import MobileMenu from './MobileMenu';
 import SlidingCart from './SlidingCart';
 import SameDay from '@/svg/SameDay';
 import Customized from '@/svg/Customized';
+import useStore from '@/store/store';
 
 function Header() {
   const [show, setShow] = useState('');
-  const [isOpen, setIsOpen] = useState(false); // State to control SlidingCart visibility
+  const [isOpen, setIsOpen] = useState(false);
+  const [cartData, setCartData] = useState([]);
+  const isCartUpdated = useStore(state => state.isCartUpdated);
+  const setCartSize = useStore(state => state.setCartSize);
+  const cartSize = useStore(state => state.cartSize);
   const navigate = useNavigate();
 
   const toggleShow = (index) => {
     setShow(index);
   };
 
-  // Function to toggle the cart visibility
   const toggleCart = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const fetchCartData = async () => {
+      try {
+        const token = localStorage.getItem('accessToken');
+        const request = await fetch('http://localhost:4000/api/v1/cart/get-user-cart', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          credentials: 'include',
+        });
+        
+        const responseData = await request.json();
+        if(responseData.statusCode === 200) {
+          setCartData(responseData.data);
+          setCartSize(responseData.data.length);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchCartData();
+  }, [isCartUpdated, setCartSize]);
 
   const renderBulkGiftingMenu = (items) => {
     return (
@@ -126,7 +154,9 @@ function Header() {
             <NavLink to={"/cart"} className="cursor-pointer">
               <div className="relative">
                 <Cart />
-                <span className="absolute -top-2 -right-2 bg-black text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
+                <span className="absolute -top-2 -right-2 bg-black text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">
+                  {cartSize || 0}
+                </span>
               </div>
             </NavLink>
           </div>

@@ -17,7 +17,7 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const request = await fetch("http://localhost:4000/api/v1/users/login", {
+      const request = await fetch("https://bonnbackend.up.railway.app/api/v1/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -16,7 +16,7 @@ const Wishlist = () => {
   const fetchWishlist = async () => {
     try {
       setError(null);
-      const request = await fetch('http://localhost:4000/api/v1/wishlists/get-wishlist', {
+      const request = await fetch('https://bonnbackend.up.railway.app/api/v1/wishlists/get-wishlist', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -64,7 +64,7 @@ const Wishlist = () => {
 
     try {
       setIsDeleting(true);
-      const endpoint = `http://localhost:4000/api/v1/wishlists/delete-from-wishlist?productId=${id}`;
+      const endpoint = `https://bonnbackend.up.railway.app/api/v1/wishlists/delete-from-wishlist?productId=${id}`;
 
       const request = await fetch(endpoint, {
         method: 'DELETE',
@@ -77,7 +77,7 @@ const Wishlist = () => {
       if (request.ok) {
         toast.success('Product Removed From Wishlist', {
           position: 'top-right',
-          autoClose: 3000,
+          autoClose: 1000,
           theme: 'dark',
         });
       } else {
@@ -87,7 +87,7 @@ const Wishlist = () => {
       console.error('Error deleting from wishlist:', error);
       toast.error('Failed to remove product from wishlist', {
         position: 'top-right',
-        autoClose: 3000,
+        autoClose: 1000,
         theme: 'dark',
       });
       // No need to revert optimistic update here

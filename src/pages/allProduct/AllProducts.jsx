@@ -5,8 +5,9 @@ import { NavLink, useParams } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { Input, Slider, Card, Spinner } from "@nextui-org/react"; 
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
-
 import { toast } from 'react-toastify';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const AllProduct = () => {
   const [categoryInfo, setCategoryInfo] = useState({});
@@ -23,20 +24,39 @@ const AllProduct = () => {
   const productsPerPage = 6;
   const { slug } = useParams();
 
-  const LoadingState = () => {
-    return (
-      <div className="h-screen w-full flex items-center justify-center bg-background">
-        <Card className="p-8 flex flex-col items-center gap-4 bg-white/10 backdrop-blur-sm">
-          <Spinner 
-            size="lg"
-            color="primary"
-            labelColor="primary"
-          />
-          <p className="text-base text-default-600">Loading Products...</p>
-        </Card>
-      </div>
-    );
-  };
+  // const LoadingState = () => {
+  //   return (
+  //     <div className="h-screen w-full flex items-center justify-center bg-background">
+  //       <Card className="p-8 flex flex-col items-center gap-4 bg-white/10 backdrop-blur-sm">
+  //         <Spinner 
+  //           size="lg"
+  //           color="primary"
+  //           labelColor="primary"
+  //         />
+  //         <p className="text-base text-default-600">Loading Products...</p>
+  //       </Card>
+  //     </div>
+  //   );
+  // };
+
+  const LoadingState = () => (
+    <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:px-4 py-10">
+      {Array.from({ length: 8 }).map((_, index) => (
+        <div key={index} className="relative cursor-pointer overflow-hidden border rounded-lg shadow-lg p-4 bg-white">
+          <div className="h-60 w-full bg-gray-100 rounded-md overflow-hidden">
+            <Skeleton height="100%" />
+          </div>
+          <div className="px-4 py-2">
+            <Skeleton width="80%" />
+            <Skeleton width="40%" />
+          </div>
+          <div className="px-4">
+            <Skeleton width="50%" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 
   const NoProduct = () => (
     <div className="flex items-center justify-center py-10">
@@ -141,7 +161,7 @@ const AllProduct = () => {
         method: "GET"
       });
       const data = await response.json();
-
+      console.log(data)
       if (response.ok && data.statusCode === 201) {
         setCategoryInfo(data.data);
       }
@@ -169,37 +189,52 @@ const AllProduct = () => {
   <div className="relative container mx-auto lg:px-4 py-8">
   {/* Header */}
   <div className="relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300">
-  {/* Background Image */}
-  {categoryInfo && products.length > 0 && (
-    <div className="absolute inset-0">
-      <img
-        alt={`${categoryInfo.catagory}.webp`}
-        src={categoryInfo.catagoryPic}
-        className="w-full h-full object-cover"
-      />
-      {/* Gradient Overlay */}
-      {/* <div className="absolute inset-0 bg-gradient-to-br from-[#CE0067]/90 via-[#e41b75]/85 to-[#ed3682]/80"></div> */}
-    </div>
-  )}
+    {/* Background Image */}
+    {categoryInfo ? (
+      <div className="absolute inset-0">
+        <img
+          alt={`${categoryInfo.catagory}.webp`}
+          src={categoryInfo.catagoryPic}
+          className="w-full h-full object-fit"
+        />
+      </div>
+    ) : (
+      <div className="absolute inset-0 bg-gray-300 animate-pulse"></div> // Skeleton for Background Image
+    )}
 
-  {/* Content */}
-  <div className="relative w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
-    <div className="max-w-3xl">
-      <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight trajan text-[#757575] drop-shadow-lg shadow-black animate-fade-in">
-        {categoryInfo?.catagory}
-      </h1>
-      <div className="w-16 sm:w-20 h-1 bg-white/25 rounded-full my-4 sm:my-6 shadow-md"></div>
-      <div className="max-w-sm"> {/* Add a max-width container here */}
-        <p className="text-base sm:text-lg lg:text-xl text-[#757575] font-medium leading-relaxed times drop-shadow-md shadow-black backdrop-blur-sm bg-white/10 p-3 rounded-lg">
-          {categoryInfo?.catagoryDesc}
-        </p>
+    {/* Content */}
+    <div className="relative w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+      <div className="max-w-3xl">
+        {categoryInfo ? (
+          <>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight trajan text-black drop-shadow-lg shadow-black animate-fade-in">
+              {categoryInfo.catagory}
+            </h1>
+            <div className="w-16 sm:w-20 h-1 bg-white/25 rounded-full my-4 sm:my-6 shadow-md"></div>
+            <div className="max-w-sm">
+              <p className="text-base sm:text-lg lg:text-xl text-black font-medium leading-relaxed times drop-shadow-md shadow-black p-3 rounded-lg">
+                {categoryInfo.catagoryDesc}
+              </p>
+            </div>
+          </>
+        ) : (
+          <div>
+            {/* Skeleton for Category Title */}
+            <div className="h-8 sm:h-10 lg:h-12 w-3/4 bg-gray-300 animate-pulse rounded-md mb-4"></div>
+            {/* Skeleton for Divider */}
+            <div className="w-16 sm:w-20 h-1 bg-gray-300 animate-pulse rounded-full my-4 sm:my-6"></div>
+            {/* Skeleton for Category Description */}
+            <div className="space-y-2">
+              <div className="h-4 sm:h-5 lg:h-6 w-full bg-gray-300 animate-pulse rounded-md"></div>
+              <div className="h-4 sm:h-5 lg:h-6 w-5/6 bg-gray-300 animate-pulse rounded-md"></div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   </div>
 </div>
 
-
-</div>
 
 
   {/* Filters */}

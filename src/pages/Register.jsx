@@ -50,7 +50,7 @@ const Register = () => {
 const onSubmit = async (data) => {
   console.log("Form submitted:", data);
   try {
-      const request = await fetch("http://localhost:4000/api/v1/users/register", {
+      const request = await fetch("https://bonnbackend.up.railway.app/api/v1/users/register", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
@@ -102,7 +102,7 @@ const onSubmit = async (data) => {
               type="text"
               id="firstName"
               {...register("firstName", { required: "First Name is required" })}
-              className={`bg-white border ${
+              className={`bg-white border times ${
                 errors.firstName ? "border-red-500" : "border-gray-300"
               } rounded-md px-4 py-2 focus:outline-none focus:ring-1 ${
                 errors.firstName
@@ -111,7 +111,7 @@ const onSubmit = async (data) => {
               }`}
             />
             {errors.firstName && (
-              <span className="text-red-500 text-sm">
+              <span className="text-red-500 text-sm times">
                 {errors.firstName.message}
               </span>
             )}
@@ -124,7 +124,7 @@ const onSubmit = async (data) => {
               type="text"
               id="lastName"
               {...register("lastName", { required: "Last Name is required" })}
-              className={`bg-white border ${
+              className={`bg-white border times ${
                 errors.lastName ? "border-red-500" : "border-gray-300"
               } rounded-md px-4 py-2 focus:outline-none focus:ring-1 ${
                 errors.lastName
@@ -133,7 +133,7 @@ const onSubmit = async (data) => {
               }`}
             />
             {errors.lastName && (
-              <span className="text-red-500 text-sm">
+              <span className="text-red-500 text-sm times">
                 {errors.lastName.message}
               </span>
             )}
@@ -152,7 +152,7 @@ const onSubmit = async (data) => {
                   message: "Invalid email format",
                 },
               })}
-              className={`bg-white border ${
+              className={`bg-white border times ${
                 errors.email ? "border-red-500" : "border-gray-300"
               } rounded-md px-4 py-2 focus:outline-none focus:ring-1 ${
                 errors.email
@@ -161,7 +161,7 @@ const onSubmit = async (data) => {
               }`}
             />
             {errors.email && (
-              <span className="text-red-500 text-sm">
+              <span className="text-red-500 text-sm times">
                 {errors.email.message}
               </span>
             )}
@@ -180,7 +180,7 @@ const onSubmit = async (data) => {
                   message: "Password must be at least 6 characters",
                 },
               })}
-              className={`bg-white border ${
+              className={`bg-white border times ${
                 errors.password ? "border-red-500" : "border-gray-300"
               } rounded-md px-4 py-2 focus:outline-none focus:ring-1 ${
                 errors.password
@@ -189,7 +189,7 @@ const onSubmit = async (data) => {
               }`}
             />
             {errors.password && (
-              <span className="text-red-500 text-sm">
+              <span className="text-red-500 text-sm times">
                 {errors.password.message}
               </span>
             )}
@@ -199,11 +199,11 @@ const onSubmit = async (data) => {
         <div className="flex items-center gap-4">
           <button
             type="submit"
-            className="bg-[#CE0067] w-[150px] mr-auto text-white py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]"
+            className="bg-[#CE0067] w-[150px] mr-auto times text-white py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]"
           >
             SUBMIT
           </button>
-          <NavLink to={"/"} className="text-sm text-gray-500 hover:underline">
+          <NavLink to={"/"} className="text-sm text-gray-500 times hover:underline">
             Cancel
           </NavLink>
         </div>
