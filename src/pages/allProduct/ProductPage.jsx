@@ -241,8 +241,6 @@ const ProductPage = () => {
           productPrice: selectedVariant.variantPrice,
           boxType: boxSize.find((box) => box.boxId === data.boxType)?.boxType,
         }),
-  
-        credentials: "include", // Include cookies in the request
       });
   
         const responseData = await request.json();
