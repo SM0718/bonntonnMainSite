@@ -225,7 +225,7 @@ const ProductPage = () => {
       const token = localStorage.getItem('accessToken');
       console.log(token)
 
-      const request = await fetch("http://localhost:4000/api/v1/cart/add-to-cart", {
+      const request = await fetch("https://bonnbackend.up.railway.app/api/v1/cart/add-to-cart", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
