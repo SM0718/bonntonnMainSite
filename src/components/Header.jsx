@@ -84,9 +84,9 @@ function Header() {
               <div className="w-full h-full flex flex-col flex-wrap gap-6">
                 <NavLink to={`/catagory/${menuItem.name}`} className="font-bold">{menuItem.name}</NavLink>
                 {menuItem.pic && (
-                  <span className="w-42 h-28 pl-2 cursor-pointer">
-                    <NavLink to={menuItem.slug}>
-                      <img className="w-full h-full object-cover rounded-xl" src={menuItem.pic} alt="Menu item" />
+                  <span className="w-42 h-28 pl-2 cursor-pointer transition duration-500 hover:scale-105">
+                    <NavLink onClick={() => console.log(menuItem)} to={menuItem.picSlug}>
+                      <img className="w-40 h-full object-cover rounded-xl" src={menuItem.pic} alt="Menu item" />
                     </NavLink>
                   </span>
                 )}

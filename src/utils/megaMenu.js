@@ -1,6 +1,6 @@
 export const megaMenu = [
     {
-      name: "Christmas Collection",
+      name: "Valentines Collection",
       slug: '#',
       subItems: [
         {
@@ -71,8 +71,8 @@ export const megaMenu = [
       subItems: [
         {
           name: 'Patisserie',
-          pic: './placeholder.jpg',
-          picSlug: '#',
+          pic: '/./molten-choco-lava.webp',
+          picSlug: '/product-page/678a4f29b21d5ebb8e128221',
           subItems: [
             { name: "Signature Cakes", slug: "676581209cffc0c07bf10540" },
             { name: "Mini Cakes", slug: "676581fe9cffc0c07bf10544" },
@@ -83,11 +83,11 @@ export const megaMenu = [
         },
         {
           name: 'Chocolaterie',
-          pic: './placeholder.jpg',
-          picSlug: '#',
+          pic: '/./truffles.webp',
+          picSlug: '/product-page/678df11b48fe43db88cfe079',
           subItems: [
             { name: "Bonbons", slug: "678683359227029080f262b6" },
-            { name: "Bars Mould", slug: "#" },
+            { name: "Bars Mould", slug: "678df4cc48fe43db88cfe129" },
             { name: "Truffels", slug: "678686f29227029080f262ba" },
             { name: "Hot Chocolates", slug: "6786873c9227029080f262bf" },
             { name: "Nougats", slug: "#" },
@@ -96,7 +96,7 @@ export const megaMenu = [
         
         {
           name: 'Boulangerie',
-          pic: './placeholder.jpg',
+          pic: '/./sourdough.webp',
           picSlug: '#',
           subItems: [
             { name: "Sandwich Wraps", slug: "6789e7de3229ac65fd8bc075" },
@@ -108,7 +108,7 @@ export const megaMenu = [
         },
         {
           name: 'Instant Cravings',
-          pic: './placeholder.jpg',
+          pic: '/./mochi.webp',
           picSlug: '#',
           subItems: [
             { name: "Brownies", slug: "6789e6933229ac65fd8bc065" },
@@ -120,7 +120,7 @@ export const megaMenu = [
         },
         {
           name: 'Theme Cakes',
-          pic: './placeholder.jpg',
+          pic: '/./themecake.webp',
           picSlug: '#',
           // subItems: [
           //   { name: "Shop All Mithai", slug: "#" },

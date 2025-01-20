@@ -21,23 +21,8 @@ const AllProduct = () => {
   const [sliderValue, setSliderValue] = useState([100, 9999]);
   const [foodType, setFoodType] = useState("");
   const [sortOrder, setSortOrder] = useState("none");
-  const productsPerPage = 6;
+  const productsPerPage = 12;
   const { slug } = useParams();
-
-  // const LoadingState = () => {
-  //   return (
-  //     <div className="h-screen w-full flex items-center justify-center bg-background">
-  //       <Card className="p-8 flex flex-col items-center gap-4 bg-white/10 backdrop-blur-sm">
-  //         <Spinner 
-  //           size="lg"
-  //           color="primary"
-  //           labelColor="primary"
-  //         />
-  //         <p className="text-base text-default-600">Loading Products...</p>
-  //       </Card>
-  //     </div>
-  //   );
-  // };
 
   const LoadingState = () => (
     <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:px-4 py-10">
@@ -207,12 +192,12 @@ const AllProduct = () => {
       <div className="max-w-3xl">
         {categoryInfo ? (
           <>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight trajan text-black drop-shadow-lg shadow-black animate-fade-in">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl times font-bold tracking-tight trajan text-black drop-shadow-lg shadow-black animate-fade-in">
               {categoryInfo.catagory}
             </h1>
             <div className="w-16 sm:w-20 h-1 bg-white/25 rounded-full my-4 sm:my-6 shadow-md"></div>
             <div className="max-w-sm">
-              <p className="text-base sm:text-lg lg:text-xl text-black font-medium leading-relaxed times drop-shadow-md shadow-black p-3 rounded-lg">
+              <p className="text-base sm:text-lg times lg:text-xl text-black font-medium leading-relaxed times drop-shadow-md shadow-black p-3 rounded-lg">
                 {categoryInfo.catagoryDesc}
               </p>
             </div>
@@ -410,35 +395,36 @@ const AllProduct = () => {
   ) : (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:px-4">
   {currentProducts.map((product) => {
-    const variant = product.variant[0]; // Destructure for clarity
+    const variant = product.variant[0];
     const isHovered = hoveredProduct === product._id;
 
     return (
-      <NavLink
+            <NavLink
         key={product._id}
         className="block"
         to={`/product-page/${product._id}`}
         onMouseEnter={() => setHoveredProduct(product._id)}
         onMouseLeave={() => setHoveredProduct(null)}
       >
-        <div className="relative cursor-pointer overflow-hidden transition-transform transform hover:scale-105 border rounded-lg shadow-lg p-4 bg-white">
+        <div className="relative cursor-pointer overflow-hidden transition-transform transform hover:scale-105 border rounded-lg shadow-lg p-4 bg-white h-[400px] flex flex-col justify-between">
           {/* Product Image */}
           <div className="relative h-60 w-full mb-4 bg-gray-100 rounded-md overflow-hidden">
             <img
               alt={`${variant.variantName}.webp`}
               src={isHovered ? variant.variantPic_2 : variant.variantPic_1}
-              className="w-full h-full object-cover transition-transform duration-300"
+              className="w-full h-full object-cover transition ease-in-out delay-300 duration-1000"
             />
           </div>
 
-
           {/* Product Details */}
-          <div className="px-4 py-2 flex justify-between items-center times">
-            <h3 className="text-lg font-semibold">{variant.variantName}</h3>
-            <p className="text-lg text-[#CE0067] font-bold">₹{variant.variantPrice}</p>
-          </div>
-          <div className="px-4 times text-[#757575]">
-            <p>{variant.foodType}</p>
+          <div className="flex-1 justify-between">
+            <div className="px-4 py-2 flex justify-between items-center">
+              <h3 className="text-lg font-semibold times">{variant.variantName}</h3>
+              <p className="text-lg text-[#CE0067] font-bold times">₹{variant.variantPrice}</p>
+            </div>
+            <div className="px-4 text-[#757575]">
+              <p className="times">{variant.foodType}</p>
+            </div>
           </div>
 
           {/* Add to Cart Button */}
@@ -452,6 +438,7 @@ const AllProduct = () => {
           </button>
         </div>
       </NavLink>
+
     );
   })}
 </div>
