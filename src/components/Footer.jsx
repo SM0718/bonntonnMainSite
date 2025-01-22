@@ -53,24 +53,24 @@ function Footer() {
 
       <div className='flex flex-col md:flex-row gap-12 md:gap-48 mt-4 md:mt-0'>
           <div className='text-white flex flex-col gap-4'>
-            <h1 className='text-xl font-bold b text-center'>THE BRAND</h1>
+            <h1 className='text-xl font-bold b text-center trajan'>THE BRAND</h1>
 
             <div className='flex flex-col gap-2'>
-              <p className='b text-base text-center md:text-start'>About Us</p>
-              <p className='b text-base text-center md:text-start'>Return Policy</p>
-              <p className='b text-base text-center md:text-start'>Shipping Info</p>
-              <p className='b text-base text-center md:text-start'>Privacy Policy</p>
+              <p className='b text-base text-center md:text-start times'>About Us</p>
+              <p className='b text-base text-center md:text-start times'>Return Policy</p>
+              <p className='b text-base text-center md:text-start times'>Shipping Info</p>
+              <p className='b text-base text-center md:text-start times'>Privacy Policy</p>
             </div>
           </div>
 
 
           {/* Div for the last div */}
           <div className='flex flex-col gap-4 text-center text-white'>
-                      <h1 className='font-bold text-center md:text-start text-xl headings b'>Contact Us</h1>
+                      <h1 className='font-bold text-center md:text-start text-xl headings b trajan'>Contact Us</h1>
 
                       <div className='flex flex-col gap-2'>
-                        <p className='times text-sm text-center md:text-start '>9874451300</p>
-                        <p className='b text-base'>bonntonn.kolkata@gmail.com</p>
+                        <p className='times text-sm text-center md:text-start'>9874451300</p>
+                        <p className='b text-base times'>bonntonn.kolkata@gmail.com</p>
                       </div>
 
                       <div className='w-full flex justify-center gap-[40px]'>
@@ -97,7 +97,7 @@ function Footer() {
 
       <div>
       <div className='mt-20 py-8 border-t'>
-         <p className='w-full px-4 font-medium mx-auto text-center text-white b'>&copy; {currentYear} Bonntonn Gourmet Gift Studio. All Rights Reserved.</p>
+         <p className='w-full px-4 font-medium mx-auto text-center text-white times'>&copy; {currentYear} Bonntonn Gourmet Gift Studio. All Rights Reserved.</p>
        </div>
       </div>
     </div>

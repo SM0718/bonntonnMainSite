@@ -14,6 +14,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { useLocation } from "react-router-dom";
 
 const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
@@ -27,6 +28,11 @@ const ProductPage = () => {
   const navigate = useNavigate()
   const token = localStorage.getItem('accessToken');
   const updateCartStatus = useStore(state => state.updateCartStatus);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top-left corner of the page
+  }, [pathname]);
   console.log(productId)
   const {
     register,

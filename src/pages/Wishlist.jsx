@@ -96,6 +96,64 @@ const Wishlist = () => {
     }
   };
 
+  const addToCart = async (data) => {
+      if (!data.boxType) {
+        toast.info("Please select a box type before adding to cart!", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        return;
+      }
+  
+      try {
+        const token = localStorage.getItem('accessToken');
+        console.log(token)
+  
+        const request = await fetch("https://bonnbackend.up.railway.app/api/v1/cart/add-to-cart", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          credentials: 'include',
+          body: JSON.stringify({
+            productId: productId,
+            variantId: selectedVariant._id,
+            productPic: selectedVariant.variantPic_1,
+            productName: selectedVariant.variantName,
+            productQuantity: data.quantity,
+            productPrice: selectedVariant.variantPrice,
+            boxType: boxSize.find((box) => box.boxId === data.boxType)?.boxType,
+          }),
+        });
+    
+          const responseData = await request.json();
+  
+          if(responseData.statusCode === 200) {
+            updateCartStatus();
+            toast.success("Product Added To Cart", {
+                position: "top-right",
+                autoClose: 1000,
+                theme: "dark",
+              });
+  
+              console.log(responseData)
+          }
+      } catch (error) {
+        console.log(error)
+      }
+  
+    };
+
+    const handleClick = (e, item) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log(item._id, item.productDetails.boxSize[0].boxType)
+    }
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[400px] p-6">
@@ -104,20 +162,6 @@ const Wishlist = () => {
       </div>
     );
   }
-
-  // if (error) {
-  //   return (
-  //     <div className="flex flex-col items-center justify-center min-h-[400px] p-6">
-  //       <p className="text-red-600 text-lg mb-4">{error}</p>
-  //       <Button 
-  //         onClick={fetchWishlist}
-  //         className="bg-[#CE0067] text-white px-4 py-2 rounded-md"
-  //       >
-  //         Try Again
-  //       </Button>
-  //     </div>
-  //   );
-  // }
 
   if (wishlist.length === 0) {
     return (
@@ -158,7 +202,7 @@ const Wishlist = () => {
                 <img
                   src={isHovered ? variant.variantPic_2 : variant.variantPic_1}
                   alt={variant.variantName}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-64 object-fit"
                 />
                 <div>
                   <div className="px-4 py-2 flex justify-between items-center times">
@@ -181,7 +225,7 @@ const Wishlist = () => {
                   </Button>
                 </div>
 
-                <Button className="bg-[#CE0067] mx-auto w-5/6 text-white px-4 py-2 my-4 times rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
+                <Button onClick={(e) => handleClick(e, item)} className="bg-[#CE0067] mx-auto w-5/6 text-white px-4 py-2 my-4 times rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
                   Add To Cart
                 </Button>
               </Card>

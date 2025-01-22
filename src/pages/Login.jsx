@@ -102,7 +102,7 @@ const Login = () => {
               )}
             />
             {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
-            <a href="#" className="times text-sm text-gray-500 hover:underline mt-1">Recover Password</a>
+            <p onClick={() => navigate('/recover-acccount')} className="times text-sm text-gray-500 hover:underline mt-1 cursor-pointer">Recover Password</p>
           </div>
         </div>
 

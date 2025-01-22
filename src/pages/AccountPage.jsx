@@ -13,6 +13,8 @@ import {
 import Trash2 from "@/svg/Trash2";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useStore from "@/store/store";
+import { useNavigate } from "react-router-dom";
 
 const AccountPage = () => {
   const [user, setUser] = useState(null);
@@ -28,6 +30,8 @@ const AccountPage = () => {
     landmark: "",
     phone: ""
   });
+  const isLoggedIn = useStore((state) => state.isLoggedIn);
+  const navigate = useNavigate()
   const token = localStorage.getItem('accessToken');
 
   const currentUser = async () => {

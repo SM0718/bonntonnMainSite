@@ -19,32 +19,32 @@ function Recommended() {
     "./homeImages/c2.webp",
   ]
 
-  function SampleNextArrow(props) {
-    const { onClick } = props;
-    return (
-      <div
-        className="absolute top-1/2 -right-12 transform -translate-y-1/2 cursor-pointer z-10 w-10 h-10 flex items-center justify-center rounded-full"
-        onClick={onClick}
-      >
-        <span className="text-black text-3xl">
-          <Next />
-        </span>
-      </div>
-    );
-  }
-  
-  function SamplePrevArrow(props) {
-    const { onClick } = props;
-    return (
-      <div
-        className="absolute top-1/2 -left-12 transform -translate-y-1/2 cursor-pointer z-10 w-10 h-10 flex items-center justify-center rounded-full"
-        onClick={onClick}
-      >
-        <span className="text-black text-3xl">
-          <Previous />
-        </span>
-      </div>
-    );
+  function SampleNextArrow(props) { 
+    const { onClick } = props; 
+    return ( 
+      <div 
+        className="hidden md:flex absolute top-1/2 -right-12 transform -translate-y-1/2 cursor-pointer z-10 w-10 h-10 items-center justify-center rounded-full" 
+        onClick={onClick} 
+      > 
+        <span className="text-black text-3xl"> 
+          <Next /> 
+        </span> 
+      </div> 
+    ); 
+  } 
+   
+  function SamplePrevArrow(props) { 
+    const { onClick } = props; 
+    return ( 
+      <div 
+        className="hidden md:flex absolute top-1/2 -left-12 transform -translate-y-1/2 cursor-pointer z-10 w-10 h-10 items-center justify-center rounded-full" 
+        onClick={onClick} 
+      > 
+        <span className="text-black text-3xl"> 
+          <Previous /> 
+        </span> 
+      </div> 
+    ); 
   }
   
 

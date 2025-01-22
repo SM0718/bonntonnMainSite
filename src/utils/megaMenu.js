@@ -4,65 +4,91 @@ export const megaMenu = [
       slug: '#',
       subItems: [
         {
-          name: 'Patisserie',
+          name: 'Best Sellers',
+          carauselInfo: [
+            {
+              pic: '/./Kunafa.webp',
+              picSlug: '/product-page/678df32e48fe43db88cfe0e5',
+              picDesc: "Kunafa meets chocolate: phyllo pastry, sweet cheese, and rich cocoa."
+            },
+            {
+              pic: '/./Mousse.webp',
+              picSlug: '/product-page/678f40f248fe43db88cfe84f',
+              picDesc: "2"
+            },
+            {
+              pic: '/./truffles.webp',
+              picSlug: '/product-page/678df11b48fe43db88cfe079',
+              picDesc: "3"
+            },
+            {
+              pic: '/./chocolava.webp',
+              picSlug: '/product-page/678a4f29b21d5ebb8e128221',
+              picDesc: "4"
+            },
+          ],
+        },
+        {
+          name: 'Valentines Kolkata',
           pic: '',
           picSlug: '#',
           subItems: [
             { name: "Signature Cakes", slug: "676581209cffc0c07bf10540" },
             { name: "Mini Cakes", slug: "676581fe9cffc0c07bf10544" },
-            { name: "Tea Cakes", slug: "#" },
-            { name: "Cupcakes and Tarts", slug: "#" },
-            { name: "Doughnuts", slug: "#" },
+            { name: "Cupcakes and Tarts", slug: "676583229cffc0c07bf1054c" },
+            { name: "Doughnuts", slug: "6784c47f9227029080f26299" },
+            { name: "Bars Mould", slug: "678df4cc48fe43db88cfe129" },
+
           ],
         },
         {
-          name: 'Chocolaterie',
+          name: 'Valentines All-India',
           pic: '',
           picSlug: '#',
           subItems: [
-            { name: "Shop All Chocolate", slug: "#" },
-            { name: "India Bites", slug: "#" },
-            { name: "Choco Butterscotch Barks", slug: "#" },
-            { name: "Choco Fudge", slug: "#" },
-            { name: "Indie Bar", slug: "#" },
+            { name: "Tea Cakes", slug: "676582a79cffc0c07bf10548" },
+            { name: "Truffels", slug: "678686f29227029080f262ba" },
+            { name: "Baked Carckers", slug: "6789e8c83229ac65fd8bc084" },
+            { name: "Brownies", slug: "6789e6933229ac65fd8bc065" },
+            { name: "Cookies", slug: "6789e6e13229ac65fd8bc069" },
           ],
         },
-        {
-          name: 'Theme Cakes',
-          pic: '',
-          picSlug: '#',
-          subItems: [
-            { name: "Shop All Mithai", slug: "#" },
-            { name: "Assorted Mithai Box", slug: "#" },
-            { name: "Mighty Motichir Laddoo", slug: "#" },
-            { name: "Modak Medly", slug: "#" },
-            { name: "Assorted Cheat Sweets", slug: "#" },
-          ],
-        },
-        {
-          name: 'Boulangerie',
-          pic: '',
-          picSlug: '#',
-          subItems: [
-            { name: "Shop All Chocolate", slug: "#" },
-            { name: "India Bites", slug: "#" },
-            { name: "Choco Butterscotch Barks", slug: "#" },
-            { name: "Choco Fudge", slug: "#" },
-            { name: "Indie Bar", slug: "#" },
-          ],
-        },
-        {
-          name: 'Instant Cravings',
-          pic: '',
-          picSlug: '#',
-          subItems: [
-            { name: "Shop All Chocolate", slug: "#" },
-            { name: "India Bites", slug: "#" },
-            { name: "Choco Butterscotch Barks", slug: "#" },
-            { name: "Choco Fudge", slug: "#" },
-            { name: "Indie Bar", slug: "#" },
-          ],
-        },
+        // {
+        //   name: 'Theme Cakes',
+        //   pic: '',
+        //   picSlug: '#',
+        //   subItems: [
+        //     { name: "Shop All Mithai", slug: "#" },
+        //     { name: "Assorted Mithai Box", slug: "#" },
+        //     { name: "Mighty Motichir Laddoo", slug: "#" },
+        //     { name: "Modak Medly", slug: "#" },
+        //     { name: "Assorted Cheat Sweets", slug: "#" },
+        //   ],
+        // },
+        // {
+        //   name: 'Boulangerie',
+        //   pic: '',
+        //   picSlug: '#',
+        //   subItems: [
+        //     { name: "Shop All Chocolate", slug: "#" },
+        //     { name: "India Bites", slug: "#" },
+        //     { name: "Choco Butterscotch Barks", slug: "#" },
+        //     { name: "Choco Fudge", slug: "#" },
+        //     { name: "Indie Bar", slug: "#" },
+        //   ],
+        // },
+        // {
+        //   name: 'Instant Cravings',
+        //   pic: '',
+        //   picSlug: '#',
+        //   subItems: [
+        //     { name: "Shop All Chocolate", slug: "#" },
+        //     { name: "India Bites", slug: "#" },
+        //     { name: "Choco Butterscotch Barks", slug: "#" },
+        //     { name: "Choco Fudge", slug: "#" },
+        //     { name: "Indie Bar", slug: "#" },
+        //   ],
+        // },
       ],
     },
     {
@@ -166,17 +192,17 @@ export const megaMenu = [
         {
           name: "Birth Announcements",
           slug: 'https://bonntonn.com/',
-          pic: './placeholder.jpg'
+          pic: '/./birth.webp'
         },
         {
           name: "Wedding",
           slug: 'https://bonntonn.com/',
-          pic: './placeholder.jpg'
+          pic: '/./wedding.webp'
         },
         {
           name: "Diwali Gifting",
           slug: 'https://bonntonn.com/',
-          pic: './placeholder.jpg'
+          pic: '/./diwali.webp'
         },
         {
           name: "Celebrations",
@@ -186,7 +212,7 @@ export const megaMenu = [
         {
           name: "Corporate Gifting",
           slug: 'https://bonntonn.com/',
-          pic: './placeholder.jpg'
+          pic: '/./corporate.webp'
         },
       ]
     },

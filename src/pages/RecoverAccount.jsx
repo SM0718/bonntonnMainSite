@@ -6,7 +6,7 @@ const RecoverAccount = () => {
     <div className="flex flex-col items-center justify-center p-4 my-12">
       <form className="flex flex-col items-start gap-4 w-1/3">
         <h1 className="text-4xl font-semibold trajan text-start text-[#757575]">Recover Your Account</h1>
-        <p className=" text-gray-600 text-start">Please enter your email and we will send you a password reset OTP.</p>
+        <p className=" text-gray-600 text-start times">Please enter your email and we will send you a password reset OTP.</p>
         {/* Email and Password Fields */}
         <div className="w-full flex gap-4">
           <div className="w-full flex flex-col">
@@ -16,7 +16,7 @@ const RecoverAccount = () => {
             <input
               type="email"
               id="email"
-              className="w-full border-[2px] bg-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full border-[2px] times bg-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
             />
           </div>
           {/* <div className="flex flex-col">
@@ -43,7 +43,7 @@ const RecoverAccount = () => {
         >
           RESET YOUR PASSWORD
         </button>
-        <NavLink to={'/'} className="text-sm text-gray-500 hover:underline">
+        <NavLink to={'/'} className="text-sm text-gray-500 hover:underline times">
           Cancel
         </NavLink>
       </form>
