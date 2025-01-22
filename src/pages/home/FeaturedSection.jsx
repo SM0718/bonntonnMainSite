@@ -5,6 +5,7 @@ import Previous from '@/svg/Previous';
 
 const FeaturedSection = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  
 
   // Next Arrow
   function SampleNextArrow(props) {

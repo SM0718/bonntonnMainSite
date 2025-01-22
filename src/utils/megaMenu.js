@@ -123,7 +123,7 @@ export const megaMenu = [
         {
           name: 'Boulangerie',
           pic: '/./sourdough.webp',
-          picSlug: '#',
+          picSlug: '/product-page/678e176248fe43db88cfe645',
           subItems: [
             { name: "Sandwich Wraps", slug: "6789e7de3229ac65fd8bc075" },
             { name: "Dips & Spreads", slug: "6789e8253229ac65fd8bc079" },

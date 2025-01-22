@@ -1,13 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function FeaturedItem() {
-  const thumbnails = [
-    './homeImages/1.jpg',
-    './homeImages/2.jpg',
-    './homeImages/3.jpg',
-    './homeImages/4.jpg',
-  ];
-  const [mainImage, setMainImage] = useState(thumbnails[0]);
+  const [product, setProduct] = useState(null);
+  const [thumbnails, setThumbnails] = useState([]);
+  const [mainImage, setMainImage] = useState('');
+  const productId = "your-product-id"; // Replace with the actual productId or dynamic prop/state
+
+  useEffect(() => {
+    // Fetch product details on component mount
+    const getProduct = async () => {
+      try {
+        const response = await fetch(`https://bonnbackend.up.railway.app/api/v1/products/product?productId=678b4f58b21d5ebb8e128417`, {
+          method: 'GET',
+        });
+
+        const data = await response.json();
+        if (response.status === 201) {
+          const productData = data?.data;
+          setProduct(productData?.variant[0]);
+          console.log(product)
+          const productVariants = productData?.variant[0] || [];
+          setThumbnails([productVariants.variantPic_1, productVariants.variantPic_2, productVariants.variantPic_3, productVariants.variantPic_4]);
+          setMainImage(productVariants.variantPic_1);
+        } else {
+          console.error(data?.message || 'Failed to fetch product');
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    getProduct();
+  }, [productId]);
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="bg-white text-black py-8">
@@ -53,19 +81,17 @@ function FeaturedItem() {
         <div className="flex flex-col justify-start gap-4 w-full md:w-[50%] px-4 md:px-0">
           {/* Product Title and Price */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-            <h2 className="text-lg md:text-xl font-bold trajan">Lorem ipsum</h2>
+            <h2 className="text-lg md:text-xl font-bold trajan">{product?.variantName || 'Molten choco lava'}</h2>
             <p className="text-md md:text-lg font-semibold text-gray-700 trajan mt-2 md:mt-0">
-              From INR 1200 - INR 1600
+              INR {product.variantPrice}
             </p>
           </div>
 
           {/* Product Description */}
           <div className="py-4 rounded-lg text-gray-700">
             <p className="times text-sm md:text-base leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur. Semper sed volutpat egestas consectetur dui lorem.
-              Consectetur aliquet cursus dignissim eget mi elementum feugiat sagittis. Iaculis nam aliquam
-              vulputate egestas nisl et vel ornare. Tristique phasellus faucibus sit commodo cursus quam.
-              Maecenas non amet turpis enim enim in odio tellus mattis. Pulvinar ut pellentesque diam nunc est.
+              {product?.variantDesc ||
+                'Lorem ipsum dolor sit amet consectetur. Semper sed volutpat egestas consectetur dui lorem. Consectetur aliquet cursus dignissim eget mi elementum feugiat sagittis. Iaculis nam aliquam vulputate egestas nisl et vel ornare. Tristique phasellus faucibus sit commodo cursus quam. Maecenas non amet turpis enim enim in odio tellus mattis. Pulvinar ut pellentesque diam nunc est.'}
             </p>
           </div>
 

@@ -190,46 +190,61 @@ const Wishlist = () => {
 
           return (
             <NavLink 
-              to={`/product-page/${item.productDetails._id}`} 
-              key={item._id}
-              className="block"
-            >
-              <Card 
-                className="relative cursor-pointer overflow-hidden transition-transform transform hover:scale-105"
-                onMouseEnter={() => handleMouseEnter(item._id)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <img
-                  src={isHovered ? variant.variantPic_2 : variant.variantPic_1}
-                  alt={variant.variantName}
-                  className="w-full h-64 object-fit"
-                />
-                <div>
-                  <div className="px-4 py-2 flex justify-between items-center times">
-                    <h3 className="text-lg font-semibold">{variant.variantName}</h3>
-                    <p className="text-lg text-gray-600">Rs {variant.variantPrice}</p>
-                  </div>
-                  <div className='px-4 times text-[#757575]'>
-                    <p>{variant.foodType}</p>
-                  </div>
-                </div>
-                <div className="absolute top-2 right-2">
-                  <Button
-                    onClick={(e) => deleteFromWishlist(e, item._id)}
-                    isIconOnly 
-                    className="bg-white min-w-unit-8 h-unit-8 rounded-full"
-                    size="sm"
-                    disabled={isDeleting}
-                  >
-                    <X size={16} />
-                  </Button>
-                </div>
+  to={`/product-page/${item.productDetails._id}`} 
+  key={item._id}
+  className="block"
+>
+  <Card 
+    className="relative cursor-pointer overflow-hidden transition-transform transform hover:scale-105 flex flex-col h-full"
+    onMouseEnter={() => handleMouseEnter(item._id)}
+    onMouseLeave={handleMouseLeave}
+  >
+    {/* Image Section */}
+    <div className="h-64 w-full flex items-center justify-center overflow-hidden">
+      <img
+        src={isHovered ? variant.variantPic_2 : variant.variantPic_1}
+        alt={variant.variantName}
+        className="h-full w-full object-cover"
+      />
+    </div>
 
-                <Button onClick={(e) => handleClick(e, item)} className="bg-[#CE0067] mx-auto w-5/6 text-white px-4 py-2 my-4 times rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
-                  Add To Cart
-                </Button>
-              </Card>
-            </NavLink>
+    {/* Info Section */}
+    <div className="flex flex-col justify-between flex-grow">
+      <div>
+        <div className="px-4 py-2 flex justify-between items-center times">
+          <h3 className="text-lg font-semibold">{variant.variantName}</h3>
+          <p className="text-lg text-gray-600">Rs {variant.variantPrice}</p>
+        </div>
+        <div className="px-4 times text-[#757575]">
+          <p>{variant.foodType}</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Wishlist & Add to Cart Section */}
+    <div className="absolute top-2 right-2">
+      <Button
+        onClick={(e) => deleteFromWishlist(e, item._id)}
+        isIconOnly 
+        className="bg-white min-w-unit-8 h-unit-8 rounded-full"
+        size="sm"
+        disabled={isDeleting}
+      >
+        <X size={16} />
+      </Button>
+    </div>
+
+    <div className="px-4 mt-auto mb-4">
+      <Button 
+        onClick={(e) => handleClick(e, item)} 
+        className="bg-[#CE0067] w-full text-white px-4 py-2 times rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]"
+      >
+        Add To Cart
+      </Button>
+    </div>
+  </Card>
+</NavLink>
+
           );
         })}
       </div>

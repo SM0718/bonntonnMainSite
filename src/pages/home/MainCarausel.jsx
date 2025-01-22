@@ -60,6 +60,7 @@ function MainCarousel() {
   const settings = {
     className: "center",
     infinite: true,
+    fade: true,
     autoplay: true,
     autoplaySpeed: 4000,
     centerPadding: "60px",
