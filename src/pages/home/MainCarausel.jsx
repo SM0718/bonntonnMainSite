@@ -86,7 +86,7 @@ function MainCarousel() {
                 <p className='w-[500px] times text-[24px]'>{desc}</p>
               </div>
               <div className='flex flex-col md:flex-row gap-4 mt-4 hiddenClass_4 showContent'>
-              <Button className="bg-[#CE0067] w-[279px] mr-auto text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067] hover:shadow-lg">
+              <Button className="bg-[#CE0067] w-[279px] mr-auto times text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067] hover:shadow-lg">
               Order Now
             </Button></div>
                </div>

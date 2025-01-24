@@ -59,65 +59,62 @@ const Login = () => {
   
   return (
     <div className="flex flex-col items-center justify-center p-4 my-12">
-      <form className="flex flex-col items-start gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <h1 className="text-4xl font-semibold mb-6 trajan text-start text-[#757575]">Login</h1>
+  <form className="flex flex-col items-start gap-4 w-full max-w-lg" onSubmit={handleSubmit(onSubmit)}>
+    <h1 className="text-4xl font-semibold mb-6 trajan text-start text-[#757575]">Login</h1>
 
-        {/* Email and Password Fields */}
-        <div className="flex gap-4">
-          <div className="flex flex-col">
-            <label htmlFor="email" className="text-gray-600 mb-1 times">
-              Email
-            </label>
-            <Controller
-              name="email"
-              control={control}
-              rules={{ required: "Email is required", pattern: { value: /^[^@]+@[^@]+\.[^@]+$/, message: "Invalid email" } }}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  type="email"
-                  id="email"
-                  className="border-[2px] bg-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
-                />
-              )}
+    {/* Email and Password Fields */}
+    <div className="flex flex-col sm:flex-row sm:gap-8 w-full">
+      <div className="flex flex-col w-full sm:w-1/2">
+        <label htmlFor="email" className="text-gray-600 mb-1 times">Email</label>
+        <Controller
+          name="email"
+          control={control}
+          rules={{ required: "Email is required", pattern: { value: /^[^@]+@[^@]+\.[^@]+$/, message: "Invalid email" } }}
+          render={({ field }) => (
+            <input
+              {...field}
+              type="email"
+              id="email"
+              className="border-[2px] bg-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
             />
-            {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
-          </div>
-          
-          <div className="flex flex-col">
-            <label htmlFor="password" className="text-gray-600 mb-1 times">
-              Password
-            </label>
-            <Controller
-              name="password"
-              control={control}
-              rules={{ required: "Password is required", minLength: { value: 6, message: "Password must be at least 6 characters" } }}
-              render={({ field }) => (
-                <input
-                  {...field}
-                  type="password"
-                  id="password"
-                  className="border-[2px] bg-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
-                />
-              )}
-            />
-            {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
-            <p onClick={() => navigate('/recover-acccount')} className="times text-sm text-gray-500 hover:underline mt-1 cursor-pointer">Recover Password</p>
-          </div>
-        </div>
+          )}
+        />
+        {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+      </div>
 
-        {/* Buttons */}
-        <button
-          type="submit"
-          className="bg-[#CE0067] w-[150px] times mr-auto text-white py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]"
-        >
-          SIGN IN
-        </button>
-        <NavLink to={"/register"} className="times text-sm text-gray-500 hover:underline">
-          Create Account
-        </NavLink>
-      </form>
+      <div className="flex flex-col w-full sm:w-1/2">
+        <label htmlFor="password" className="text-gray-600 mb-1 times">Password</label>
+        <Controller
+          name="password"
+          control={control}
+          rules={{ required: "Password is required", minLength: { value: 6, message: "Password must be at least 6 characters" } }}
+          render={({ field }) => (
+            <input
+              {...field}
+              type="password"
+              id="password"
+              className="border-[2px] bg-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+            />
+          )}
+        />
+        {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
+        <p onClick={() => navigate('/recover-account')} className="times text-sm text-gray-500 hover:underline mt-1 cursor-pointer">Recover Password</p>
+      </div>
     </div>
+
+    {/* Buttons */}
+    <button
+      type="submit"
+      className="bg-[#CE0067] w-full sm:w-[150px] times mr-auto text-white py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]"
+    >
+      SIGN IN
+    </button>
+    <NavLink to={"/register"} className="times text-sm text-gray-500 hover:underline mt-2 block text-center sm:text-left">
+      Create Account
+    </NavLink>
+  </form>
+</div>
+
   );
 };
 
