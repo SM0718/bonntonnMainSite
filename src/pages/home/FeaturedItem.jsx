@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 function FeaturedItem() {
   const [product, setProduct] = useState(null);
   const [thumbnails, setThumbnails] = useState([]);
   const [mainImage, setMainImage] = useState('');
-  const productId = "your-product-id"; // Replace with the actual productId or dynamic prop/state
-
+  const navigate = useNavigate()
+  
   useEffect(() => {
     // Fetch product details on component mount
     const getProduct = async () => {
@@ -31,7 +31,7 @@ function FeaturedItem() {
     };
 
     getProduct();
-  }, [productId]);
+  }, []);
 
   if (!product) {
     return <div>Loading...</div>;
@@ -96,7 +96,7 @@ function FeaturedItem() {
           </div>
 
           {/* Proceed to Checkout Button */}
-          <button className="bg-[#CE0067] w-full text-white px-4 py-2 rounded-md times transition duration-500 hover:bg-white hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
+          <button onClick={() => navigate('/product-page/678b4f58b21d5ebb8e128417')} className="bg-[#CE0067] w-full text-white px-4 py-2 rounded-md times transition duration-500 hover:bg-white hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
             SEE MORE
           </button>
         </div>

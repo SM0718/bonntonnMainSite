@@ -28,12 +28,7 @@ const ProductPage = () => {
   const navigate = useNavigate()
   const token = localStorage.getItem('accessToken');
   const updateCartStatus = useStore(state => state.updateCartStatus);
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to the top-left corner of the page
-  }, [pathname]);
-  console.log(productId)
+  
   const {
     register,
     handleSubmit,
