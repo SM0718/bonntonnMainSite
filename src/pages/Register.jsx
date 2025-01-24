@@ -50,7 +50,7 @@ const Register = () => {
 const onSubmit = async (data) => {
   console.log("Form submitted:", data);
   try {
-      const request = await fetch("http://localhost:4000/api/v1/users/register", {
+      const request = await fetch("https://bonnbackend.up.railway.app/api/v1/users/register", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
