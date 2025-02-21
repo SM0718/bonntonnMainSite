@@ -192,7 +192,7 @@ const AllProduct = () => {
       <div className="max-w-3xl">
         {categoryInfo ? (
           <>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl times font-bold tracking-tight trajan text-black drop-shadow-lg shadow-black animate-fade-in">
+            <h1 className="text-xl sm:text-2xl lg:text-4xl times font-medium tracking-tight trajan text-black drop-shadow-lg shadow-black animate-fade-in">
               {categoryInfo.catagory}
             </h1>
             <div className="w-16 sm:w-20 h-1 bg-white/25 rounded-full my-4 sm:my-6 shadow-md"></div>
@@ -241,10 +241,10 @@ const AllProduct = () => {
       classNames={{
         base: "gap-3",
         track: "bg-gray-200",
-        filledTrack: "bg-[#5C0977]",
-        thumb: "bg-white border-[#5C0977] border-2 hover:bg-[#5C0977] hover:border-[#5C0977] transition-colors",
-        label: "text-[#5C0977] font-medium",
-        value: "text-[#5C0977]",
+        filledTrack: "bg-[#BD9153]",
+        thumb: "bg-white border-[#BD9153] border-2 hover:bg-[#BD9153] hover:border-[#BD9153] transition-colors",
+        label: "text-[#BD9153] font-medium",
+        value: "text-[#BD9153]",
       }}
     />
   </div>
@@ -256,9 +256,9 @@ const AllProduct = () => {
         <Button
           size="lg"
           style={{
-            border: `2px solid #5C0977`,
+            border: `2px solid #BD9153`,
             backgroundColor: "transparent",
-            color: "#5C0977",
+            color: "#BD9153",
           }}
           className="w-full sm:w-auto px-4 py-3 rounded-md hover:bg-[#F3E5F5] transition"
         >
@@ -275,19 +275,19 @@ const AllProduct = () => {
       >
         <DropdownItem
           key="VEG"
-          className="px-4 py-2 hover:bg-[#F3E5F5] text-[#5C0977] transition"
+          className="px-4 py-2 hover:bg-[#F3E5F5] text-[#BD9153] transition"
         >
           Veg
         </DropdownItem>
         <DropdownItem
           key="NON-VEG"
-          className="px-4 py-2 hover:bg-[#F3E5F5] text-[#5C0977] transition"
+          className="px-4 py-2 hover:bg-[#F3E5F5] text-[#BD9153] transition"
         >
           Non-Veg
         </DropdownItem>
         <DropdownItem
           key="EGG"
-          className="px-4 py-2 hover:bg-[#F3E5F5] text-[#5C0977] transition"
+          className="px-4 py-2 hover:bg-[#F3E5F5] text-[#BD9153] transition"
         >
           Egg
         </DropdownItem>
@@ -313,9 +313,9 @@ const AllProduct = () => {
         <Button
         size="lg"
           style={{
-            border: `2px solid #5C0977`,
+            border: `2px solid #BD9153`,
             backgroundColor: "transparent",
-            color: "#5C0977",
+            color: "#BD9153",
           }}
           className="w-full sm:w-auto px-4 py-3 rounded-md hover:bg-[#F3E5F5] transition"
         >
@@ -336,16 +336,16 @@ const AllProduct = () => {
         }}
         className="rounded-md shadow-lg"
       >
-        <DropdownItem key="none" className="px-4 py-2 hover:bg-[#F3E5F5] text-[#5C0977] transition">
+        <DropdownItem key="none" className="px-4 py-2 hover:bg-[#F3E5F5] text-[#BD9153] transition">
           None
         </DropdownItem>
-        <DropdownItem key="priceLowToHigh" className="px-4 py-2 hover:bg-[#F3E5F5] text-[#5C0977] transition">
+        <DropdownItem key="priceLowToHigh" className="px-4 py-2 hover:bg-[#F3E5F5] text-[#BD9153] transition">
           Price: Low to High
         </DropdownItem>
-        <DropdownItem key="priceHighToLow" className="px-4 py-2 hover:bg-[#F3E5F5] text-[#5C0977] transition">
+        <DropdownItem key="priceHighToLow" className="px-4 py-2 hover:bg-[#F3E5F5] text-[#BD9153] transition">
           Price: High to Low
         </DropdownItem>
-        <DropdownItem key="alphabetical" className="px-4 py-2 hover:bg-[#F3E5F5] text-[#5C0977] transition">
+        <DropdownItem key="alphabetical" className="px-4 py-2 hover:bg-[#F3E5F5] text-[#BD9153] transition">
           Alphabetical
         </DropdownItem>
       </DropdownMenu>
@@ -356,12 +356,12 @@ const AllProduct = () => {
   <div className="flex gap-2 w-full sm:w-auto">
     <Button
       style={{
-        backgroundColor: "#5C0977",
+        backgroundColor: "#BD9153",
         color: "#FFFFFF",
         border: "none",
       }}
       size="lg"
-      className="w-full sm:w-auto px-4 py-3 rounded-md hover:bg-[#490559] transition"
+      className="w-full sm:w-auto px-4 py-3 rounded-md hover:bg-[#BD9153] transition"
       type="submit"
     >
       Apply
@@ -369,8 +369,8 @@ const AllProduct = () => {
     <Button
       style={{
         backgroundColor: "transparent",
-        color: "#CE0067",
-        border: "1px solid #CE0067",
+        color: "#BD9153",
+        border: "1px solid #BD9153",
       }}
       size="lg"
       className="w-full sm:w-auto px-4 py-3 rounded-md hover:bg-[#FCE4EC] transition"
@@ -399,45 +399,43 @@ const AllProduct = () => {
     const isHovered = hoveredProduct === product._id;
 
     return (
-            <NavLink
-        key={product._id}
-        className="block"
-        to={`/product-page/${product._id}`}
-        onMouseEnter={() => setHoveredProduct(product._id)}
-        onMouseLeave={() => setHoveredProduct(null)}
-      >
-        <div className="relative cursor-pointer overflow-hidden transition-transform transform hover:scale-105 border rounded-lg shadow-lg p-4 bg-white h-[400px] flex flex-col justify-between">
-          {/* Product Image */}
-          <div className="relative h-60 w-full mb-4 bg-gray-100 rounded-md overflow-hidden">
-            <img
-              alt={`${variant.variantName}.webp`}
-              src={isHovered ? variant.variantPic_2 : variant.variantPic_1}
-              className="w-full h-full object-cover transition ease-in-out delay-300 duration-1000"
-            />
-          </div>
-
-          {/* Product Details */}
-          <div className="flex-1 justify-between">
-            <div className="px-4 py-2 flex justify-between items-center">
-              <h3 className="text-lg font-semibold times">{variant.variantName}</h3>
-              <p className="text-lg text-[#CE0067] font-bold times">₹{variant.variantPrice}</p>
-            </div>
-            <div className="px-4 text-[#757575]">
-              <p className="times">{variant.foodType}</p>
-            </div>
-          </div>
-
-          {/* Add to Cart Button */}
-          <button
-            className="absolute left-0 bottom-[-50px] w-full bg-[#CE0067] text-white px-4 py-2 rounded-md transition-all duration-500 ease-in-out hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067] 
-            sm:group-hover:bottom-4 sm:opacity-0 sm:group-hover:opacity-100 
-            sm:transition-opacity sm:duration-300 sm:ease-in-out
-            sm:visible hidden"
-          >
-            Add To Cart
-          </button>
+      <NavLink
+      key={product._id}
+      className="block"
+      to={`/product-page/${product._id}`}
+      onMouseEnter={() => setHoveredProduct(product._id)}
+      onMouseLeave={() => setHoveredProduct(null)}
+    >
+      <div className="group relative cursor-pointer overflow-hidden border rounded-lg shadow-md bg-white h-[420px] flex flex-col transition-all duration-300 hover:shadow-xl">
+        {/* Product Image Container */}
+        <div className="relative h-64 w-full bg-gray-50 overflow-hidden">
+          <img
+            alt={`${variant.variantName}`}
+            src={isHovered ? variant.variantPic_2 : variant.variantPic_1}
+            className="w-full h-full object-contain transition-opacity duration-500 ease-in-out"
+          />
+          {/* Overlay for hover effect */}
+          <div className="absolute inset-0 bg-black bg-opacity-0 transition-all duration-300 group-hover:bg-opacity-5"></div>
         </div>
-      </NavLink>
+    
+        {/* Product Details - Consistent Padding */}
+        <div className="flex flex-col flex-1 p-4">
+          <div className="flex justify-between items-center mb-2">
+            <h3 className="text-lg font-medium text-gray-800 times">{variant.variantName}</h3>
+            <p className="text-lg text-[#BD9153] font-bold times">₹{variant.variantPrice}</p>
+          </div>
+          <p className="text-[#757575] text-sm times">{variant.foodType}</p>
+        </div>
+    
+        {/* Add to Cart Button - Improved Positioning */}
+        <button
+          className="absolute left-0 bottom-0 w-full bg-[#BD9153] text-white py-3 font-medium text-sm uppercase tracking-wider transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out hover:bg-[#e6b46d]"
+          aria-label="Add to cart"
+        >
+          Add To Cart
+        </button>
+      </div>
+    </NavLink>
 
     );
   })}
@@ -465,7 +463,7 @@ const AllProduct = () => {
           onClick={() => setCurrentPage(i + 1)}
           className={`px-3 py-1 border rounded times ${
             currentPage === i + 1
-              ? "bg-[#CE0067] text-white"
+              ? "bg-[#BD9153] text-white"
               : "hover:bg-gray-200"
           }`}
         >

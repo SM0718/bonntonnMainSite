@@ -63,7 +63,7 @@ function FeaturedItem() {
               <div
                 key={idx}
                 className={`w-[75px] h-[75px] md:w-[100px] md:h-[100px] lg:w-[125px] lg:h-[120px] cursor-pointer ${
-                  mainImage === src ? 'border-4 border-pink-600 rounded-xl' : ''
+                  mainImage === src ? 'border-4 border-[#BD9153] rounded-xl' : ''
                 }`}
                 onClick={() => setMainImage(src)}
               >
@@ -96,7 +96,7 @@ function FeaturedItem() {
           </div>
 
           {/* Proceed to Checkout Button */}
-          <button onClick={() => navigate('/product-page/678b4f58b21d5ebb8e128417')} className="bg-[#CE0067] w-full text-white px-4 py-2 rounded-md times transition duration-500 hover:bg-white hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
+          <button onClick={() => navigate('/product-page/678b4f58b21d5ebb8e128417')} className="bg-[#BD9153] w-full text-white px-4 py-2 rounded-md times transition duration-500 hover:bg-white hover:outline hover:outline-[1px] hover:outline-[#BD9153] hover:text-[#BD9153]">
             SEE MORE
           </button>
         </div>

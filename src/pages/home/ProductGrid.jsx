@@ -54,21 +54,21 @@ function ProductGrid() {
           {leftImages.map((item, idx) => (
             <div
               key={idx}
-              className="w-full h-[250px] md:h-[300px] flex-none overflow-hidden rounded-lg shadow-lg relative group"
+              className="w-full h-[250px] md:h-[300px] flex-none overflow-hidden rounded-lg shadow-lg relative"
             >
               <img
                 src={item.img}
                 alt={`Product ${idx + 1}`}
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-[5000ms] scale-100 hover:scale-150"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end transition-opacity duration-300">
                 <div className="p-4">
                   <div className="flex flex-col gap-2">
                     <p className="trajan text-white text-[24px] md:text-[40px]">{item.name}</p>
                     <p className="times text-white text-sm md:text-md">
                       {item.desc}
                     </p>
-                    <Button onClick={() => navigate(item.slug)} className="bg-[#CE0067] w-[150px] md:w-[200px] times text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
+                    <Button onClick={() => navigate(item.slug)} className="bg-[#BD9153] w-[150px] md:w-[200px] times text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#BD9153] hover:text-[#BD9153]">
                       Order Now
                     </Button>
                   </div>
@@ -88,16 +88,16 @@ function ProductGrid() {
               <img
                 src={item.img}
                 alt={`Product ${idx + 5}`}
-                className="w-full h-full object-fit transition-transform duration-1000 group-hover:scale-110"
+                className="w-full h-full object-fit transition-transform duration-[5000ms] group-hover:scale-150"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end transition-opacity duration-300">
                 <div className="p-4">
                   <div className="flex flex-col gap-2">
                     <p className="trajan text-white text-[24px] md:text-[40px]">{item.name}</p>
                     <p className="times text-white text-sm md:text-md">
                       {item.desc}
                     </p>
-                    <Button onClick={() => navigate(item.slug)} className="bg-[#CE0067] w-[150px] md:w-[200px] times text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]">
+                    <Button onClick={() => navigate(item.slug)} className="bg-[#BD9153] w-[150px] md:w-[200px] times text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#BD9153] hover:text-[#BD9153]">
                       Order Now
                     </Button>
                   </div>

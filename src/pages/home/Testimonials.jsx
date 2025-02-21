@@ -41,7 +41,7 @@ const Testimonials = () => {
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="border border-purple-500 rounded-lg p-4 md:p-6 shadow-lg flex flex-col items-center justify-evenly text-center h-auto md:h-[550px]"
+            className="border border-[#BD9153] rounded-lg p-4 md:p-6 shadow-lg flex flex-col items-center justify-evenly text-center h-auto md:h-[550px]"
           >
             {/* Profile Image and Info */}
             <div className="w-full flex flex-col sm:flex-row items-center sm:items-start sm:justify-start gap-4 sm:gap-8 mb-4 md:mb-0">
@@ -64,14 +64,14 @@ const Testimonials = () => {
             {/* Rating */}
             <div className="w-full flex items-center justify-center sm:justify-start gap-2 mb-4">
               {Array.from({ length: testimonial.rating }).map((_, index) => (
-                <span key={index} className="text-[#8904B5] text-xl sm:text-2xl lg:text-[32px]">
+                <span key={index} className="text-[#BD9153] text-xl sm:text-2xl lg:text-[32px]">
                   ★
                 </span>
               ))}
             </div>
 
             {/* Title */}
-            <h4 className="text-purple-600 w-full text-center sm:text-start font-semibold mb-2 trajan text-xl sm:text-2xl lg:text-[32px]">
+            <h4 className="text-[#BD9153] w-full text-center sm:text-start font-semibold mb-2 trajan text-xl sm:text-2xl lg:text-[32px]">
               {testimonial.title}
             </h4>
 

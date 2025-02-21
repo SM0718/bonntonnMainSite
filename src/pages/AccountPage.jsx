@@ -217,7 +217,7 @@ const AccountPage = () => {
                   </div>
                   <Button
                     onClick={() => handleDeleteAddress(addr._id)}
-                    className="text-[#CE0067]"
+                    className="text-[#BD9153]"
                     variant="light"
                   >
                     <Trash2 />
@@ -229,7 +229,7 @@ const AccountPage = () => {
           <Button
             // onClick={() => setShowAddressModal(true)}
             onPress={onOpen}
-            className="bg-[#CE0067] times w-[150px] text-white py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]"
+            className="bg-[#BD9153] times w-[150px] text-white py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#BD9153] hover:text-[#BD9153]"
           >
             Add Address
           </Button>

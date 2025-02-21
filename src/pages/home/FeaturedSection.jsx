@@ -63,7 +63,7 @@ const FeaturedSection = () => {
   }, [windowWidth]);
 
   return (
-    <div className="bg-[#5C0977] py-8">
+    <div className="bg-[#BD9153] py-8">
       <h2 className="text-white text-2xl md:text-3xl font-semibold text-center mb-6 trajan">
         Featured In
       </h2>

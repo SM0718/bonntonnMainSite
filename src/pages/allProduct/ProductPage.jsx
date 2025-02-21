@@ -305,8 +305,8 @@ const ProductPage = () => {
       size={24}
       className={`transition-colors duration-300 ${
         isInWishlist
-          ? "fill-[#CE0067] stroke-[#CE0067]"
-          : "stroke-[#CE0067] fill-transparent"
+          ? "fill-[#BD9153] stroke-[#BD9153]"
+          : "stroke-[#BD9153] fill-transparent"
       }`}
     />
   </button>
@@ -318,7 +318,7 @@ const ProductPage = () => {
                 src && (
                   <div
                     key={index}
-                    className={`${selectedImage === src && "border-3 border-[#CE0067] rounded-xl"} aspect-square w-full cursor-pointer`}
+                    className={`${selectedImage === src && "border-3 border-[#BD9153] rounded-xl"} aspect-square w-full cursor-pointer`}
                     onClick={() => handleImageClick(src)}
                   >
                     <img
@@ -336,7 +336,7 @@ const ProductPage = () => {
           <div className="flex justify-between items-start">
             <div>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold trajan">{selectedVariant?.variantName || "Product"}</h1>
-              <p className="text-lg text-[#CE0067] font-semibold mt-2 times">
+              <p className="text-lg text-[#BD9153] font-semibold mt-2 times">
                 Price - {selectedVariant?.variantPrice || 0} INR
               </p>
               <p className="text-gray-700 mt-1 times">
@@ -459,7 +459,7 @@ const ProductPage = () => {
                       type="button"
                       key={index}
                       className={` px-4 rounded-md times text-sm py-2 ${
-                        selectedVariant === variant ? "bg-[#CE0067] text-white" : "bg-gray-200 text-gray-800"
+                        selectedVariant === variant ? "bg-[#BD9153] text-white" : "bg-gray-200 text-gray-800"
                       }`}
                       onClick={() => handleVariantChange(variant)}
                     >
@@ -554,7 +554,7 @@ const ProductPage = () => {
                   type="submit"
                   disabled={!selectedBox}
                   className={`w-full px-4 py-2 rounded-md transition duration-500 times cursor-pointer ${
-                   "bg-[#CE0067] text-white hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067]"
+                   "bg-[#BD9153] text-white hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#BD9153] hover:text-[#BD9153]"
                   }`}
                 >
                   Add To Cart

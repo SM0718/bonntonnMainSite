@@ -10,7 +10,7 @@ function Footer() {
 
   return (
 
-    <div className='bg-[#5C0977] p-8'>
+    <div className='bg-[#BD9153] p-8'>
 
       {/* Div for main info */}
       <div className='flex flex-col md:flex-row justify-center items-center gap-8'>

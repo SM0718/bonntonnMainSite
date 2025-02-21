@@ -76,7 +76,7 @@ const Clientele = () => {
   }, []);
 
   return (
-    <div className="bg-[#efadce] py-6 md:py-8 lg:py-10 px-3 md:px-4 lg:px-5">
+    <div className="bg-[#BD9153] py-6 md:py-8 lg:py-10 px-3 md:px-4 lg:px-5">
       <h2 className="text-center text-white text-2xl md:text-3xl lg:text-4xl trajan font-bold mb-4 md:mb-6">
         Our Noble Clientele
       </h2>

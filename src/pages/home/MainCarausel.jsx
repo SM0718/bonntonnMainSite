@@ -86,7 +86,7 @@ function MainCarousel() {
                 <p className='w-[500px] times text-[24px]'>{desc}</p>
               </div>
               <div className='flex flex-col md:flex-row gap-4 mt-4 hiddenClass_4 showContent'>
-              <Button className="bg-[#CE0067] w-[279px] mr-auto times text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067] hover:shadow-lg">
+              <Button className="bg-[#BD9153] w-[279px] mr-auto times text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067] hover:shadow-lg">
               Order Now
             </Button></div>
                </div>
@@ -114,11 +114,11 @@ function MainCarousel() {
                 onClick={() => sliderRef.slickGoTo(index)}
                 className={`
                     ${index === slideActive 
-                        ? "bg-[#CE0067] border-[#CE0067]" 
+                        ? "bg-[#BD9153] border-[#BD9153]" 
                         : "bg-white/25 border-white"}
                     size-4 cursor-pointer
                     rounded-full border-2 
-                    hover:bg-[#d23b86]/75 hover:border-[#CE0067]
+                    hover:bg-[#BD9153]/75 hover:border-[#BD9153]
                 `}
             />
         ))
