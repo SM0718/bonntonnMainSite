@@ -148,25 +148,44 @@ function BestSellers() {
       <div className="slider-container relative w-full md:w-4/5 mx-auto">
         <Slider {...settings}>
           {bestSellers.map((item, index) => (
-            <div key={index} className="px-4 py-8 cursor-pointer">
-              <div className="w-full h-[300px] md:h-[400px] flex justify-center group">
-                <img
-                onClick={() => navigate(item.picSlug)}
-                  className="w-full h-full rounded-md object-cover transition-all duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl"
-                  src={item.pic}
-                  alt="Product"
-                />
-              </div>
-  
-              {/* Keep the text content section the same */}
-              <div className="text-center mt-4">
-                <p className="font-bold times text-lg md:text-xl text-start">{item.name}</p>
-                <div className='flex justify-between'>
-                  <p className="text-gray-500 text-sm md:text-base times">{item.size}</p>
-                  <p className="font-semibold text-lg md:text-xl times">Rs {item.price}</p>
-                </div>
-              </div>
-            </div>
+             <div className="group relative p-2 md:p-4 overflow-hidden rounded-xl transition-all duration-300 hover:shadow-lg">
+             {/* Sale badge - uncomment and customize if needed */}
+             {/* {item.onSale && (
+               <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+                 SALE
+               </div>
+             )} */}
+             
+             {/* Image container with gradient overlay */}
+             <div className="relative w-full h-[300px] md:h-[400px] overflow-hidden rounded-xl">
+               <img
+                 onClick={() => navigate(item.picSlug)}
+                 className="w-full h-full object-cover transition-all duration-700 ease-out"
+                 src={item.pic}
+                 alt={item.name}
+               />
+               
+               {/* Gradient overlay that appears on hover */}
+               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer" />
+               
+               {/* Quick view button - appears on hover */}
+               {/* <div 
+                 onClick={() => navigate(item.picSlug)}
+                 className="absolute bottom-4 left-0 right-0 mx-auto w-3/4 text-center py-3 bg-white/90 text-gray-900 font-medium rounded-lg transform translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer shadow-md"
+               >
+                 Quick View
+               </div> */}
+             </div>
+             
+             {/* Product details with subtle animations */}
+             <div className="mt-4 pb-2 transition-all duration-300 group-hover:translate-y-1">
+               <h3 className="font-serif text-lg md:text-xl text-gray-900 mb-2 group-hover:text-gray-700">{item.name}</h3>
+               <div className="flex justify-between items-center">
+                 <p className="font-serif text-gray-500 text-md md:text-lg">{item.size}</p>
+                 <p className="font-serif font-medium text-md md:text-lg bg-gray-50 px-3 py-1 rounded-md">Rs {item.price}</p>
+               </div>
+             </div>
+           </div>
           ))}
         </Slider>
       </div>

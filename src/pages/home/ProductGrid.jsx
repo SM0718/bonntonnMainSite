@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from '@nextui-org/react';
 import { useNavigate } from 'react-router-dom';
-function ProductGrid() {
 
+function ProductGrid() {
   const navigate = useNavigate()
   const leftImages = [
     {
@@ -47,28 +47,28 @@ function ProductGrid() {
   ];
 
   return (
-    <div className="bg-white py-24 px-4 md:px-8">
-      <div className="flex flex-col md:flex-row gap-4">
+    <div className="bg-white py-16 px-4 md:px-6">
+      <div className="flex flex-col md:flex-row gap-3">
         {/* Left Section */}
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
+        <div className="flex flex-col gap-3 w-full md:w-1/2">
           {leftImages.map((item, idx) => (
             <div
               key={idx}
-              className="w-full h-[250px] md:h-[300px] flex-none overflow-hidden rounded-lg shadow-lg relative"
+              className="w-full h-[200px] md:h-[250px] flex-none overflow-hidden rounded-lg shadow-lg relative"
             >
               <img
                 src={item.img}
                 alt={`Product ${idx + 1}`}
-                className="w-full h-full object-cover transition-transform duration-[5000ms] scale-100 hover:scale-150"
+                className="w-full h-full object-cover transition-transform duration-[10000ms] scale-100 hover:scale-150"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end transition-opacity duration-300">
-                <div className="p-4">
-                  <div className="flex flex-col gap-2">
-                    <p className="trajan text-white text-[24px] md:text-[40px]">{item.name}</p>
-                    <p className="times text-white text-sm md:text-md">
+                <div className="p-3">
+                  <div className="flex flex-col gap-1">
+                    <p className="trajan text-white text-[20px] md:text-[26px]">{item.name}</p>
+                    <p className="times text-white text-xs md:text-sm">
                       {item.desc}
                     </p>
-                    <Button onClick={() => navigate(item.slug)} className="bg-[#BD9153] w-[150px] md:w-[200px] times text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#BD9153] hover:text-[#BD9153]">
+                    <Button onClick={() => navigate(item.slug)} className="bg-[#BD9153] w-[130px] md:w-[180px] times text-white px-3 py-1 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#BD9153] hover:text-[#BD9153]">
                       Order Now
                     </Button>
                   </div>
@@ -79,25 +79,25 @@ function ProductGrid() {
         </div>
 
         {/* Right Section */}
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
+        <div className="flex flex-col gap-3 w-full md:w-1/2">
           {rightImages.map((item, idx) => (
             <div
               key={idx}
-              className="w-full h-[400px] md:h-[615px] flex-none overflow-hidden rounded-lg shadow-lg relative group"
+              className="w-full h-[350px] md:h-[515px] flex-none overflow-hidden rounded-lg shadow-lg relative group"
             >
               <img
                 src={item.img}
                 alt={`Product ${idx + 5}`}
-                className="w-full h-full object-fit transition-transform duration-[5000ms] group-hover:scale-150"
+                className="w-full h-full object-fit transition-transform duration-[10000ms] group-hover:scale-150"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end transition-opacity duration-300">
-                <div className="p-4">
-                  <div className="flex flex-col gap-2">
-                    <p className="trajan text-white text-[24px] md:text-[40px]">{item.name}</p>
-                    <p className="times text-white text-sm md:text-md">
+                <div className="p-3">
+                  <div className="flex flex-col gap-1">
+                    <p className="trajan text-white text-[20px] md:text-[26px]">{item.name}</p>
+                    <p className="times text-white text-xs md:text-sm">
                       {item.desc}
                     </p>
-                    <Button onClick={() => navigate(item.slug)} className="bg-[#BD9153] w-[150px] md:w-[200px] times text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#BD9153] hover:text-[#BD9153]">
+                    <Button onClick={() => navigate(item.slug)} className="bg-[#BD9153] w-[130px] md:w-[180px] times text-white px-3 py-1 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#BD9153] hover:text-[#BD9153]">
                       Order Now
                     </Button>
                   </div>

@@ -82,11 +82,11 @@ function MainCarousel() {
           <div className={` ${currentSlide? "flex" : "hidden"} flex flex-col justify-start gap-12 absolute left-24 top-24`}>
               
               <div className='flex flex-col justify-between md:justify-start gap-4 text-white hiddenClass_3 showContent'>
-                <p className='font-semibold trajan text-[44px]'>{name}</p>
+                <p className='font-semibold trajan text-[34px]'>{name}</p>
                 <p className='w-[500px] times text-[24px]'>{desc}</p>
               </div>
               <div className='flex flex-col md:flex-row gap-4 mt-4 hiddenClass_4 showContent'>
-              <Button className="bg-[#BD9153] w-[279px] mr-auto times text-white px-4 py-2 rounded-md transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#CE0067] hover:text-[#CE0067] hover:shadow-lg">
+              <Button className="text-[20px] bg-[#BD9153] w-[225px] mr-auto times text-white px-2 py-2 rounded-full transition duration-500 hover:bg-transparent hover:outline hover:outline-[1px] hover:outline-[#BD9153] hover:text-[#BD9153] hover:shadow-lg">
               Order Now
             </Button></div>
                </div>
