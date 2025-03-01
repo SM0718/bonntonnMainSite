@@ -47,7 +47,7 @@ function BestSellers() {
     const { onClick } = props;
     return (
       <div
-        className="absolute top-1/2 -right-12 transform -translate-y-1/2 cursor-pointer z-10 w-10 h-10 flex items-center justify-center rounded-full hidden md:flex" // Added hidden md:flex
+        className="absolute top-1/2 -right-12 transform -translate-y-1/2 cursor-pointer z-10 w-10 h-10 items-center justify-center rounded-full hidden md:flex" // Added hidden md:flex
         onClick={onClick}
       >
         <span className="text-black text-3xl">
@@ -61,7 +61,7 @@ function BestSellers() {
     const { onClick } = props;
     return (
       <div
-        className="absolute top-1/2 -left-12 transform -translate-y-1/2 cursor-pointer z-10 w-10 h-10 flex items-center justify-center rounded-full hidden md:flex" // Added hidden md:flex
+        className="absolute top-1/2 -left-12 transform -translate-y-1/2 cursor-pointer z-10 w-10 h-10 flex items-center justify-center rounded-full md:flex" // Added hidden md:flex
         onClick={onClick}
       >
         <span className="text-black text-3xl">
