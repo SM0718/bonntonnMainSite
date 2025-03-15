@@ -4,7 +4,7 @@ const categories = [
   {
     title: 'Bespoke Cakes',
     description: 'Lorem Ipsum Dolor Sit Amet Consectetur',
-    image: 'https://via.placeholder.com/600x400', // Replace with actual images
+    image: 'https://via.placeholder.com/600x400',
     link: '#',
   },
   {

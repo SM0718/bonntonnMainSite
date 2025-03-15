@@ -45,7 +45,7 @@ function Categories() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold trajan">{item.catagoryName}</h3>
-                <div className="mt-3 w-16 h-1 bg-[#CE0067] group-hover:w-20 transition-all duration-300" />
+                <div className="mt-3 w-16 h-1 bg-[#BD9153] group-hover:w-20 transition-all duration-300" />
               </div>
             </CardBody>
           </Card>

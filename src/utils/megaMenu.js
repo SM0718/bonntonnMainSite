@@ -1,35 +1,35 @@
 export const megaMenu = [
     {
-      name: "Valentines Collection",
+      name: "Holi Collection",
       slug: '#',
       subItems: [
         {
           name: 'Best Sellers',
           carauselInfo: [
             {
-              pic: '/./Kunafa.webp',
+              pic: '/./Kunafa.jpg',
               picSlug: '/product-page/678df32e48fe43db88cfe0e5',
-              picDesc: "Kunafa meets chocolate: phyllo pastry, sweet cheese, and rich cocoa."
+              picDesc: "Kunafa meets chocolate"
             },
             {
               pic: '/./Mousse.webp',
               picSlug: '/product-page/678f40f248fe43db88cfe84f',
-              picDesc: "2"
+              picDesc: "Chocolate Mousse"
             },
             {
               pic: '/./truffles.webp',
               picSlug: '/product-page/678df11b48fe43db88cfe079',
-              picDesc: "3"
+              picDesc: "Hand Rolled Truffles"
             },
             {
               pic: '/./chocolava.webp',
               picSlug: '/product-page/678a4f29b21d5ebb8e128221',
-              picDesc: "4"
+              picDesc: "Chocolave Cake"
             },
           ],
         },
         {
-          name: 'Valentines Kolkata',
+          name: 'Holi Kolkata',
           pic: '',
           picSlug: '#',
           subItems: [
@@ -42,12 +42,12 @@ export const megaMenu = [
           ],
         },
         {
-          name: 'Valentines All-India',
+          name: 'Holi All-India',
           pic: '',
           picSlug: '#',
           subItems: [
             { name: "Tea Cakes", slug: "676582a79cffc0c07bf10548" },
-            { name: "Truffels", slug: "678686f29227029080f262ba" },
+            { name: "Truffle", slug: "678686f29227029080f262ba" },
             { name: "Baked Carckers", slug: "6789e8c83229ac65fd8bc084" },
             { name: "Brownies", slug: "6789e6933229ac65fd8bc065" },
             { name: "Cookies", slug: "6789e6e13229ac65fd8bc069" },

@@ -4,86 +4,156 @@ import Next from '@/svg/Next';
 import Previous from '@/svg/Previous';
 
 const FeaturedSection = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  );
 
-  // Next Arrow
+  // Featured publications data
+  const publications = [
+    { name: 'The Telegraph', logo: './homeImages/telegraph.png' },
+    { name: 'The Guardian', logo: './homeImages/guardian.png' },
+    { name: 'Forbes', logo: './homeImages/forbes.png' },
+    { name: 'BBC', logo: './homeImages/bbc.png' },
+    { name: 'The Times', logo: './homeImages/times.png' },
+    { name: 'Vogue', logo: './homeImages/vogue.png' }
+  ];
+
+  // Custom Next Arrow with animation
   function SampleNextArrow(props) {
     const { onClick } = props;
     return (
       <div
-        className="absolute top-1/2 -right-8 md:-right-12 transform -translate-y-1/2 cursor-pointer z-10 w-8 md:w-10 h-8 md:h-10 flex items-center justify-center rounded-full"
+        className="absolute top-1/2 -right-4 md:-right-8 lg:-right-12 transform -translate-y-1/2 cursor-pointer z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white bg-opacity-20 backdrop-blur-sm transition-all duration-300 hover:bg-opacity-40 hover:scale-110"
         onClick={onClick}
+        aria-label="Next slide"
       >
-        <span className="text-white text-2xl md:text-3xl">
+        <span className="text-white">
           <Next />
         </span>
       </div>
     );
   }
 
-  // Prev Arrow
+  // Custom Previous Arrow with animation
   function SamplePrevArrow(props) {
     const { onClick } = props;
     return (
       <div
-        className="absolute top-1/2 -left-8 md:-left-12 transform -translate-y-1/2 cursor-pointer z-10 w-8 md:w-10 h-8 md:h-10 flex items-center justify-center rounded-full"
+        className="absolute top-1/2 -left-4 md:-left-8 lg:-left-12 transform -translate-y-1/2 cursor-pointer z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white bg-opacity-20 backdrop-blur-sm transition-all duration-300 hover:bg-opacity-40 hover:scale-110"
         onClick={onClick}
+        aria-label="Previous slide"
       >
-        <span className="text-white text-2xl md:text-3xl">
+        <span className="text-white">
           <Previous />
         </span>
       </div>
     );
   }
 
-  // Slider Settings
+  // Responsive slider settings
   const settings = {
     className: 'mx-auto',
     infinite: true,
-    slidesToShow: windowWidth > 600 && windowWidth < 1500 ? 2 : windowWidth < 600 ? 1 : 3,
-    speed: 1000,
+    slidesToShow: getSlidesToShow(),
+    speed: 700,
     autoplay: true,
-    autoplaySpeed: 3000,
-    cssEase: 'linear',
+    autoplaySpeed: 4000,
+    cssEase: 'ease-in-out',
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    dots: true,
+    dotsClass: 'slick-dots custom-dots',
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
   };
 
-  // Handle window resize
+  // Calculate slides to show based on screen width
+  function getSlidesToShow() {
+    if (windowWidth < 600) return 1;
+    if (windowWidth < 1024) return 2;
+    return 3;
+  }
+
+  // Handle window resize with debounce
   const handleResize = () => {
-    setWindowWidth(window.innerWidth);
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth);
+    }
   };
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [windowWidth]);
+    if (typeof window !== 'undefined') {
+      let timeoutId = null;
+      const debounceResize = () => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(handleResize, 200);
+      };
+      
+      window.addEventListener('resize', debounceResize);
+      return () => {
+        window.removeEventListener('resize', debounceResize);
+        clearTimeout(timeoutId);
+      };
+    }
+  }, []);
 
   return (
-    <div className="bg-[#BD9153] py-8">
-      <h2 className="text-white text-2xl md:text-3xl font-semibold text-center mb-6 trajan">
-        Featured In
-      </h2>
-      <div className="slider-container relative w-full md:w-4/5 mx-auto">
-        <Slider {...settings}>
-          {Array(6).fill("").map((_, index) => (
-            <div
-              key={index}
-              className="flex justify-center px-4"
-            >
-              <img
-                src="./homeImages/telegraph.png"
-                alt={`Telegraph ${index + 1}`}
-                className="w-[150px] md:w-[200px] h-auto object-contain"
-              />
-            </div>
-          ))}
-        </Slider>
+    <section className="bg-gradient-to-r bg-[#BD9153]/75 py-12 md:py-16 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r bg-[#BD9153] opacity-40"></div>
+      <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-l bg-[#BD9153] opacity-40"></div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Title with decorative elements */}
+        <div className="flex items-center justify-center mb-10 relative">
+          <div className="h-px w-16 bg-[#e2c18b] opacity-70 hidden md:block"></div>
+          <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-semibold text-center mx-4 trajan tracking-wider">
+            Featured In
+          </h2>
+          <div className="h-px w-16 bg-[#e2c18b] opacity-70 hidden md:block"></div>
+        </div>
+        
+        <div className="slider-container relative w-full md:w-11/12 lg:w-5/6 mx-auto">
+          <Slider {...settings}>
+            {publications.map((pub, index) => (
+              <div key={index} className="px-3 md:px-4 lg:px-6 py-2">
+                <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex items-center justify-center h-28 md:h-32 transition-all duration-300 hover:bg-opacity-20 hover:shadow-lg hover:shadow-[#8d6c3a]/30 transform hover:-translate-y-1">
+                  <img
+                    src={pub.logo}
+                    alt={pub.name}
+                    className="w-auto max-w-full h-auto max-h-16 md:max-h-20 object-contain filter brightness-110"
+                  />
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+        
+        {/* Subtle decorative text */}
+        <p className="text-center mt-10 text-white/75 text-xs font-semibold uppercase tracking-widest">
+          Trusted by leading publications nationwide
+        </p>
       </div>
-    </div>
+    </section>
   );
 };
 

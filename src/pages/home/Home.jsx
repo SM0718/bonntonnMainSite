@@ -17,11 +17,11 @@ function Home() {
 
       <MainCarausel />
 
-      <div className='flex flex-col gap-4 justify-between bg-white text-black py-12'>
-        <p className='trajan text-[30px] md:text-[40px] text-center'>Embraced with Love | Directly from the Heart!</p>
+      <div className='flex flex-col gap-4 justify-between bg-white text-black'>
+        {/* <p className='trajan text-[30px] md:text-[40px] text-center'>Embraced with Love | Directly from the Heart!</p>
         <p className='w-full md:w-[800px] times text-[16px] md:text-[26px] text-center text-[#757575] mx-auto px-2'>
           Thoughtfully crafted for every heartfelt celebration, our gifts are made to bring joy and create memories. Unwrap the essence of love, all carefully packed and ready to be shared.
-        </p>
+        </p> */}
       </div>
 
       <BestSellers />
