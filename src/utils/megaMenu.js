@@ -114,7 +114,7 @@ export const megaMenu = [
           subItems: [
             { name: "Bonbons", slug: "678683359227029080f262b6" },
             { name: "Bars Mould", slug: "678df4cc48fe43db88cfe129" },
-            { name: "Truffels", slug: "678686f29227029080f262ba" },
+            { name: "Truffles", slug: "678686f29227029080f262ba" },
             { name: "Hot Chocolates", slug: "6786873c9227029080f262bf" },
             { name: "Nougats", slug: "#" },
           ],
