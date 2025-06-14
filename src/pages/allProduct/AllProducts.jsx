@@ -157,7 +157,7 @@ const AllProduct = () => {
             <img
               alt={`${categoryInfo.catagory}`}
               src={categoryInfo.catagoryPic}
-              className="w-full h-full object-cover opacity-60"
+              className="w-full h-full object-cover"
             />
           ) : (
             <div className="w-full h-full bg-gray-200 animate-pulse"></div>

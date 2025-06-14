@@ -15,19 +15,19 @@ function MainCarousel() {
   const carouselItems = [
     {
       name: 'Gourmet Gifts',
-      img: '/./homeImages/mainBanner.webp',
+      img: '././ggdesktop.jpg',
       desc: 'Curated with care, our artisanal treats are perfect for every occasion—from festive hampers to everyday indulgences.',
       buttonSlug: '#',
     },
     {
       name: 'Delicious Hampers',
-      img: '././homeImages/mainBanner.webp',
+      img: '/./dhd.jpg ',
       desc: 'Discover the perfect gifts filled with gourmet treats, thoughtfully curated for your special moments.',
       buttonSlug: '#',
     },
     {
       name: 'Festive Indulgences',
-      img: './homeImages/mainBanner.webp',
+      img: '/./fid.jpg',
       desc: 'Celebrate every occasion with our luxurious range of handcrafted gourmet delights, carefully selected to delight and impress.',
       buttonSlug: '#',
     },

@@ -16,7 +16,7 @@ const SpecialOfferBanner = () => {
   return (
     <div 
       className={`relative group bg-cover bg-center rounded-xl overflow-hidden h-64 md:h-80 lg:h-96 hidden md:flex ${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`} 
-      style={{ backgroundImage: "url('./homeImages/banner.webp')" }}
+      style={{ backgroundImage: "url('/./ob1.jpg')" }}
     >
       {/* Gradient overlay with subtle animation */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/40 rounded-xl"></div>
